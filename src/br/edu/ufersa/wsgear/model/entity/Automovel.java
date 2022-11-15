@@ -10,6 +10,7 @@ public class Automovel {
 
 	private Cliente dono;
 	private Orcamento orcamentoServico;
+	private String cpfDono;
 	private String marca;
 	private String modelo;
 	private String cor;
@@ -64,6 +65,12 @@ public class Automovel {
 			this.cor = cor;
 		} else {
 			this.cor = "-";
+		}
+	}
+
+	public void setCpfDono(String cpfDono) {
+		if (!cpfDono.isEmpty()) {
+			this.cpfDono = cpfDono;
 		}
 	}
 
@@ -148,8 +155,13 @@ public class Automovel {
 		return this.orcamentoServico;
 	}
 
+	public String getCpfDono() {
+		return cpfDono;
+	}
+
 	public static Automovel conveter(AutomovelDTO dto) {
 		Automovel a = new Automovel();
+		a.setCpfDono(dto.getCpfDono());
 		a.setAno(dto.getAno());
 		a.setCor(dto.getCor());
 		a.setDono(dto.getDono());
@@ -161,4 +173,5 @@ public class Automovel {
 		a.setIdAutomovel(dto.getIdAutomovel());
 		return a;
 	}
+
 }

@@ -25,7 +25,6 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 			} else
 				return false;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -48,7 +47,6 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 			}
 			return servicos;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}

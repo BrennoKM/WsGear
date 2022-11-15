@@ -10,6 +10,7 @@ public class AutomovelDTO {
 	
 	private Cliente dono;
 	private Orcamento orcamentoServico;
+	private String cpfDono;
 	private String marca;
 	private String modelo;
 	private String cor;
@@ -62,6 +63,12 @@ public class AutomovelDTO {
 			this.cor = cor;
 		} else {
 			this.cor = "-";
+		}
+	}
+	
+	public void setCpfDono(String cpfDono) {
+		if (!cpfDono.isEmpty()) {
+			this.cpfDono = cpfDono;
 		}
 	}
 
@@ -125,6 +132,10 @@ public class AutomovelDTO {
 
 	public String getPlaca() {
 		return this.placa;
+	}
+	
+	public String getCpfDono() {
+		return this.cpfDono;
 	}
 
 	public int getAno() {

@@ -58,7 +58,7 @@
             <Image url="@../../../../../../../../../../../Downloads/Captura%20de%20tela%202022-11-13%20215941.png" />
          </image>
       </ImageView>
-      <TextField fx:id="pecaNome" layoutX="292.0" layoutY="132.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Troca de Pneu" />
+      <TextField fx:id="servicoNome" layoutX="292.0" layoutY="132.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Troca de Pneu" />
       <TextField fx:id="servicoPreco" layoutX="292.0" layoutY="162.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: R$ 200.00" />
       <TextField fx:id="servicoStatus" layoutX="292.0" layoutY="190.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Completo" />
       <Button fx:id="cadastrarButton" layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
