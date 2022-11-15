@@ -1,30 +1,29 @@
 package br.edu.ufersa.wsgear.api.dto;
 
 public class PecaDTO {
-	private int idPeca; // Identificador: Possivelmente um Enum
+	private Long idPeca; // Identificador: Possivelmente um Enum
 	private String nome; // Nome
 	private String fab; // Fabricante
 	private double preco; // Valor
 
 	public PecaDTO() {
-		setIdPeca(0);
 		setNome("");
 		setFab("");
 		setPreco(0.0);
 	}
-
-	public PecaDTO(int idPeca, String nome, String fab, double preco) {
+	public PecaDTO(Long idPeca) {
 		setIdPeca(idPeca);
+	}
+	
+	public PecaDTO(String nome, String fab, double preco) {
 		setNome(nome);
 		setFab(fab);
 		setPreco(preco);
 	}
 
-	public void setIdPeca(int idPeca) {
-		if (idPeca > 0)
-			this.idPeca = idPeca;
-		else
-			this.idPeca = 0;
+	public void setIdPeca(Long l) {
+		if (l > 0)
+			this.idPeca = l;
 	}
 
 	public void setNome(String nome) {
@@ -60,7 +59,7 @@ public class PecaDTO {
 		return this.fab;
 	}
 
-	public int getIdPeca() {
+	public Long getIdPeca() {
 		return this.idPeca;
 	}
 }

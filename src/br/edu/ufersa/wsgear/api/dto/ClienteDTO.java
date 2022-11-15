@@ -8,8 +8,8 @@ import br.edu.ufersa.wsgear.model.entity.Endereco;
 
 public class ClienteDTO {
 	
-	private static int contCliente;
-	private int idCliente;
+
+	private Long idCliente;
 
 	private String nome;
 	private String cpf;
@@ -18,8 +18,23 @@ public class ClienteDTO {
 	private List<Endereco> enderecos = new ArrayList<>();
 	private List<Automovel> automoveis = new ArrayList<>();
 
+	
 	public ClienteDTO() {
+	}
 
+	public ClienteDTO(String nome) {
+		setNome(nome);
+	}
+
+	public ClienteDTO(String nome, String cpf) {
+		setNome(nome);
+		setCpf(cpf);
+	}
+
+	public ClienteDTO(String nome, String cpf, Endereco endereco) {
+		setNome(nome);
+		setCpf(cpf);
+		setEndereco(endereco);
 	}
 
 	// Metodos set
@@ -28,7 +43,7 @@ public class ClienteDTO {
 		if (!nome.isEmpty()) {
 			this.nome = nome;
 		} else {
-			this.nome = "Cliente " + contCliente;
+			this.nome = "Cliente sem nome";
 		}
 	}
 
@@ -46,6 +61,12 @@ public class ClienteDTO {
 		}
 	}
 
+	public void setEnderecos(List<Endereco> list) {
+		if (list != null) {
+			this.enderecos = list;
+		}
+	}
+
 	public void setTelefone(String telefone) {
 		if (!telefone.isEmpty()) {
 			this.telefone = telefone;
@@ -54,12 +75,20 @@ public class ClienteDTO {
 		}
 	}
 
-	public void setIdCliente(int i) {
-		this.idCliente = contCliente;
+	public void setIdCliente(Long l) {
+		this.idCliente = l;
 	}
 
-	public void setVeiculos(Automovel automovel) {
-		automoveis.add(automovel);
+	public void setVeiculo(Automovel automovel) {
+		if (automovel != null) {
+			automoveis.add(automovel);
+		}
+	}
+	
+	public void setAutomoveis(List<Automovel> list) {
+		if (list != null) {
+			this.automoveis = list;
+		}
 	}
 
 	// Metodos get
@@ -80,7 +109,7 @@ public class ClienteDTO {
 		return this.telefone;
 	}
 
-	public int getIdCliente() {
+	public Long getIdCliente() {
 		return this.idCliente;
 	}
 

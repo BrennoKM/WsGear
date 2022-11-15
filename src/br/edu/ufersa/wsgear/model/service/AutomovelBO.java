@@ -39,7 +39,7 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 				automovel.setMarca(rs.getString("marca"));
 				automovel.setModelo(rs.getString("modelo"));
 				automovel.setCor(rs.getNString("cor"));
-				automovel.setIdDono(rs.getInt("idDono"));
+				automovel.setIdDono(rs.getLong("idDono"));
 				
 				automovels.add(automovel);
 			}

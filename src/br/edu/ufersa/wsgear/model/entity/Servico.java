@@ -8,7 +8,7 @@ import br.edu.ufersa.wsgear.api.dto.ServicoDTO;
 
 public class Servico {
 	// Garantia de integridade ---------------------------------------------------
-	private int idServico;
+	private Long idServico;
 	private String nome;
 	private double preco;
 	private LocalDate dataServico;
@@ -18,33 +18,29 @@ public class Servico {
 	public Servico() {
 	}
 
-	public Servico(int idServico) {
+	public Servico(long idServico) {
 		setIdServico(idServico);
 	}
 	
-	public Servico(int idServico, String nome) {
-		setIdServico(idServico);
+	public Servico(String nome) {
 		setNome(nome);
 		setDataInicialServico();
 	}
 
-	public Servico(int idServico, String nome, double preco) {
-		setIdServico(idServico);
+	public Servico(String nome, double preco) {
 		setNome(nome);
 		setPreco(preco);
 		setDataInicialServico();
 	}
 
-	public Servico(int idServico, String nome, double preco, String status) {
-		setIdServico(idServico);
+	public Servico(String nome, double preco, String status) {
 		setNome(nome);
 		setPreco(preco);
 		setStatus(status);
 		setDataInicialServico();
 	}
 
-	public Servico(int idServico, String nome, double preco, String status, String dataServico) {
-		setIdServico(idServico);
+	public Servico(String nome, double preco, String status, String dataServico) {
 		setNome(nome);
 		setPreco(preco);
 		setStatus(status);
@@ -53,9 +49,9 @@ public class Servico {
 
 	// Metodos set ---------------------------------------------------
 
-	public void setIdServico(int idServico2) {
+	public void setIdServico(long l) {
 
-		this.idServico = idServico2;
+		this.idServico = l;
 	}
 
 	public void setNome(String nome) {
@@ -85,7 +81,7 @@ public class Servico {
 	}
 	// Metodos get ---------------------------------------------------
 
-	public int getIdServico() {
+	public Long getIdServico() {
 		return idServico;
 	}
 
@@ -111,6 +107,7 @@ public class Servico {
 		s.setNome(dto.getNome());
 		s.setStatus(dto.getStatus());
 		s.setPreco(dto.getPreco());
+		s.setIdServico(dto.getIdServico());
 		return s;
 	}
 }

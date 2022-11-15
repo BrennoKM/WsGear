@@ -4,6 +4,10 @@ import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 
 public class Automovel {
 	// Atributos privados
+
+	private Long idAutomovel;
+	private Long idDono;
+
 	private Cliente dono;
 	private Orcamento orcamentoServico;
 	private String marca;
@@ -12,11 +16,11 @@ public class Automovel {
 	private String placa;
 	private int ano;
 	private int anomax = 2050;
-	private int idDono;
 
 	// Construtores
 	public Automovel() {
 	}
+
 	public Automovel(Cliente dono, String marca) {
 		setDono(dono);
 		setMarca(marca);
@@ -80,22 +84,27 @@ public class Automovel {
 	}
 
 	public void setDono(Cliente dono) {
-		if(!(dono == null)) {
+		if (!(dono == null)) {
 			this.dono = dono;
 			idDono = dono.getIdCliente();
-		}
-		else 
-			this.dono = new Cliente("Juju");
+		} else
+			this.dono = new Cliente("Cliente sem nome");
 	}
-	
-	public void setIdDono(int iDdono) {
-		if(!(idDono >= 0)) {
-			this.idDono = iDdono;
+
+	public void setIdDono(Long idDono) {
+		if (idDono >= 0) {
+			this.idDono = idDono;
+		}
+	}
+
+	public void setIdAutomovel(Long idAutomovel) {
+		if (idAutomovel >= 0) {
+			this.idAutomovel = idAutomovel;
 		}
 	}
 
 	public void setOrcamentoServico(Orcamento orcamentoServico) {
-		if(orcamentoServico != null)
+		if (orcamentoServico != null)
 			this.orcamentoServico = orcamentoServico;
 		else
 			this.orcamentoServico = new Orcamento();
@@ -127,8 +136,12 @@ public class Automovel {
 		return this.dono;
 	}
 
-	public int getIdDono() {
+	public Long getIdDono() {
 		return this.idDono;
+	}
+
+	public Long getIdAutomovel() {
+		return this.idAutomovel;
 	}
 
 	public Orcamento getOrcamentoServico() {
@@ -145,7 +158,7 @@ public class Automovel {
 		a.setModelo(dto.getModelo());
 		a.setOrcamentoServico(dto.getOrcamentoServico());
 		a.setPlaca(dto.getPlaca());
-		
+		a.setIdAutomovel(dto.getIdAutomovel());
 		return a;
 	}
 }

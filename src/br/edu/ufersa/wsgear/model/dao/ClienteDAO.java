@@ -17,8 +17,14 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 			pst.setString(2, cliente.getNome());
 			pst.setString(3, cliente.getTelefone());
 			pst.execute();
+			
+			ResultSet generatedKeys = pst.getGeneratedKeys();
+			if(generatedKeys.next()) {
+				cliente.setIdCliente(generatedKeys.getLong("idCliente"));
+			}
+			
 			return true;
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -63,7 +69,7 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 		String sql = "SELECT * FROM tb_cliente WHERE id=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, e.getIdCliente());
+			pst.setLong(1, e.getIdCliente());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				Cliente c = new Cliente();
@@ -113,7 +119,7 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 				break;
 
 			default:
-				pst.setInt(1, e.getIdCliente());
+				pst.setLong(1, e.getIdCliente());
 			}
 
 			ResultSet rs = pst.executeQuery();

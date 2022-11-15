@@ -40,7 +40,7 @@ public class ClienteBO implements ServiceInterface<ClienteDTO>{
 				cliente.setCpf(rs.getString("cpf"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setTelefone(rs.getNString("telefone"));
-				cliente.setIdCliente(rs.getInt("id"));
+				cliente.setIdCliente(rs.getLong("idCliente"));
 				
 				clientes.add(cliente);
 			}

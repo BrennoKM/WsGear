@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class ServicoDTO {
 	// Garantia de integridade ---------------------------------------------------
-		private int idServico;
+		private Long idServico;
 		private String nome;
 		private double preco;
 		private LocalDate dataServico;
@@ -15,29 +15,29 @@ public class ServicoDTO {
 		public ServicoDTO() {
 		}
 
-		public ServicoDTO(int idServico, String nome) {
+		public ServicoDTO(Long idServico) {
 			setIdServico(idServico);
+		}
+		
+		public ServicoDTO(String nome) {
 			setNome(nome);
 			setDataInicialServico();
 		}
 
-		public ServicoDTO(int idServico, String nome, double preco) {
-			setIdServico(idServico);
+		public ServicoDTO(String nome, double preco) {
 			setNome(nome);
 			setPreco(preco);
 			setDataInicialServico();
 		}
 
-		public ServicoDTO(int idServico, String nome, double preco, String status) {
-			setIdServico(idServico);
+		public ServicoDTO(String nome, double preco, String status) {
 			setNome(nome);
 			setPreco(preco);
 			setStatus(status);
 			setDataInicialServico();
 		}
 
-		public ServicoDTO(int idServico, String nome, double preco, String status, String dataServico) {
-			setIdServico(idServico);
+		public ServicoDTO(String nome, double preco, String status, String dataServico) {
 			setNome(nome);
 			setPreco(preco);
 			setStatus(status);
@@ -46,9 +46,9 @@ public class ServicoDTO {
 
 		// Metodos set ---------------------------------------------------
 
-		public void setIdServico(int idServico2) {
+		public void setIdServico(long l) {
 
-			this.idServico = idServico2;
+			this.idServico = l;
 		}
 
 		public void setNome(String nome) {
@@ -78,7 +78,7 @@ public class ServicoDTO {
 		}
 		// Metodos get ---------------------------------------------------
 
-		public int getIdServico() {
+		public Long getIdServico() {
 			return idServico;
 		}
 

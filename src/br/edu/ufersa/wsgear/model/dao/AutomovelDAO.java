@@ -19,10 +19,15 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			//
 			//
 			pst.execute();
+			
+			ResultSet generatedKeys = pst.getGeneratedKeys();
+			if(generatedKeys.next()) {
+				automovel.setIdAutomovel(generatedKeys.getLong("idAutomovel"));
+			}
+			
 			return true;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -32,13 +37,12 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 		String sql = "DELETE FROM tb_automovel WHERE idDono=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, automovel.getIdDono());
+			pst.setLong(1, automovel.getIdDono());
 			pst.execute();
 
 			return true;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -54,11 +58,10 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			pst.setString(3, automovel.getCor());
 			pst.setString(4, automovel.getPlaca());
 			pst.setInt(5, automovel.getAno());
-			pst.setInt(6, automovel.getIdDono());
+			pst.setLong(6, automovel.getIdDono());
 			pst.execute();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -69,7 +72,7 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 		String sql = "SELECT * FROM tb_automovel WHERE idDono=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, e.getIdDono());
+			pst.setLong(1, e.getIdDono());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				Automovel a = new Automovel();
@@ -77,19 +80,18 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 				a.setModelo(rs.getString("modelo"));
 				a.setCor(rs.getString("cor"));
 				a.setPlaca(rs.getString("placa"));
-				a.setIdDono(rs.getInt("idDono"));
+				a.setIdDono(rs.getLong("idDono"));
+				a.setIdAutomovel(rs.getLong("idAutomovel"));
 				return a;
 			} else
 				return null;
 
 		} catch (SQLException ex) {
-			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			return null;
 		}
 	}
 
-	@Override
 	public ResultSet findAll() {
 		String sql = "SELECT * FROM tb_automovel;";
 		try {
@@ -98,13 +100,11 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			return rs;
 
 		} catch (SQLException ex) {
-			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			return null;
 		}
 	}
 
-	@Override
 	public ResultSet findBySpecifiedField(Automovel e, String field) {
 		String sql = "SELECT * FROM tb_automovel WHERE " + field + "=? ;";
 		try {
@@ -123,24 +123,23 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 				break;
 
 			default:
-				pst.setInt(1, e.getIdDono());
+				pst.setLong(1, e.getIdAutomovel());
 			}
 
 			ResultSet rs = pst.executeQuery();
 			return rs;
 
 		} catch (SQLException ex) {
-			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			return null;
 		}
 	}
 
 	public Automovel buscar(Automovel automovel) {
-		String sql = "SELECT * FROM tb_automovel WHERE idDono = ?";
+		String sql = "SELECT * FROM tb_automovel WHERE idAutomovel = ?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, automovel.getIdDono());
+			pst.setLong(1, automovel.getIdAutomovel());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				return automovel;
@@ -148,7 +147,6 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 				return null;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -164,7 +162,6 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			return rs;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}

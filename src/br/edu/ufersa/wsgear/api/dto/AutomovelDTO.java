@@ -5,6 +5,9 @@ import br.edu.ufersa.wsgear.model.entity.Orcamento;
 
 public class AutomovelDTO {
 	// Atributos privados
+	private Long idAutomovel;
+	private Long idDono;
+	
 	private Cliente dono;
 	private Orcamento orcamentoServico;
 	private String marca;
@@ -13,8 +16,6 @@ public class AutomovelDTO {
 	private String placa;
 	private int ano;
 	private int anomax = 2050;
-	private int idDono;
-
 	// Construtores
 	public AutomovelDTO() {
 	}
@@ -89,12 +90,18 @@ public class AutomovelDTO {
 			this.dono = new Cliente("Juju");
 	}
 	
-	public void setIdDono(int iDdono) {
-		if(!(idDono >= 0)) {
-			this.idDono = iDdono;
+	public void setIdDono(Long idDono) {
+		if(idDono >= 0) {
+			this.idDono = idDono;
 		}
 	}
 
+	public void setIdAutomovel(Long idAutomovel) {
+		if(idAutomovel >=0) {
+			this.idAutomovel = idAutomovel;
+		}
+	}
+	
 	public void setOrcamentoServico(Orcamento orcamentoServico) {
 		if(orcamentoServico != null)
 			this.orcamentoServico = orcamentoServico;
@@ -128,10 +135,14 @@ public class AutomovelDTO {
 		return this.dono;
 	}
 
-	public int getIdDono() {
+	public Long getIdDono() {
 		return this.idDono;
 	}
 
+	public Long getIdAutomovel() {
+		return this.idAutomovel;
+	}
+	
 	public Orcamento getOrcamentoServico() {
 		return this.orcamentoServico;
 	}

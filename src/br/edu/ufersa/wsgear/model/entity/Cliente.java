@@ -7,8 +7,7 @@ import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 
 public class Cliente {
 
-	private static int contCliente;
-	private int idCliente;
+	private Long idCliente;
 
 	private String nome;
 	private String cpf;
@@ -17,30 +16,23 @@ public class Cliente {
 	private List<Endereco> enderecos = new ArrayList<>();
 	private List<Automovel> automoveis = new ArrayList<>();
 
+	
 	public Cliente() {
-		setIdCliente(contCliente);
-		contCliente++;
 	}
 
 	public Cliente(String nome) {
 		setNome(nome);
-		setIdCliente(contCliente);
-		contCliente++;
 	}
 
 	public Cliente(String nome, String cpf) {
 		setNome(nome);
 		setCpf(cpf);
-		setIdCliente(contCliente);
-		contCliente++;
 	}
 
 	public Cliente(String nome, String cpf, Endereco endereco) {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
-		setIdCliente(contCliente);
-		contCliente++;
 	}
 
 	// Metodos set
@@ -49,7 +41,7 @@ public class Cliente {
 		if (!nome.isEmpty()) {
 			this.nome = nome;
 		} else {
-			this.nome = "Cliente " + contCliente;
+			this.nome = "Cliente sem nome";
 		}
 	}
 
@@ -81,8 +73,8 @@ public class Cliente {
 		}
 	}
 
-	public void setIdCliente(int i) {
-		this.idCliente = contCliente;
+	public void setIdCliente(Long l) {
+		this.idCliente = l;
 	}
 
 	public void setVeiculo(Automovel automovel) {
@@ -115,7 +107,7 @@ public class Cliente {
 		return this.telefone;
 	}
 
-	public int getIdCliente() {
+	public Long getIdCliente() {
 		return this.idCliente;
 	}
 
@@ -130,6 +122,7 @@ public class Cliente {
 		c.setTelefone(dto.getTelefone());
 		c.setEnderecos(dto.getEnderecos());
 		c.setAutomoveis(dto.getAutomoveis());
+		c.setIdCliente(dto.getIdCliente());
 		return c;
 	}
 }
