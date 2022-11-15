@@ -1,0 +1,83 @@
+package br.edu.ufersa.wsgear.model.service;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
+import br.edu.ufersa.wsgear.model.dao.AutomovelDAO;
+import br.edu.ufersa.wsgear.model.dao.BaseInterDAO;
+import br.edu.ufersa.wsgear.model.entity.Automovel;
+
+
+public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
+	BaseInterDAO<Automovel> dao = new AutomovelDAO();
+	public boolean inserir(AutomovelDTO automovelDTO) {
+		Automovel automovel = Automovel.conveter(automovelDTO);
+		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
+		try {
+			if(rs==null || !(rs.next()) ) {
+				if(dao.inserir(automovel) == true)
+					return true;
+					else return false;
+			}
+			else return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+		
+	}
+	
+	public List<Automovel> listar(){
+		List<Automovel> automovels = new ArrayList<Automovel>();
+		ResultSet rs = dao.findAll();
+		try {
+			while(rs.next()) {
+				Automovel automovel = new Automovel();
+				automovel.setMarca(rs.getString("marca"));
+				automovel.setModelo(rs.getString("modelo"));
+				automovel.setCor(rs.getNString("cor"));
+				automovel.setIdDono(rs.getInt("idDono"));
+				
+				automovels.add(automovel);
+			}
+			return automovels;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public boolean alterar(AutomovelDTO automovelDTO) {
+		Automovel automovel = Automovel.conveter(automovelDTO);
+		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
+		try {
+			if(rs!=null && rs.next() ) {
+				if(dao.alterar(automovel) == true)
+					return true;
+					else return false;
+			}
+			else return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+	}
+	public boolean deletar(AutomovelDTO automovelDTO) {
+		Automovel automovel = Automovel.conveter(automovelDTO);
+		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
+		try {
+			if(rs!=null && rs.next() ) {
+				if(dao.deletar(automovel) == true)
+					return true;
+					else return false;
+			}
+			else return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+	}
+}
