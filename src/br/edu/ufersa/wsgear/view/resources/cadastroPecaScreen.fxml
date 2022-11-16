@@ -20,7 +20,7 @@
             <MenuItem fx:id="cadAutomovel" mnemonicParsing="false" onAction="#cadastrarAutomovel" text="Automóvel" />
             <MenuItem fx:id="cadServico" mnemonicParsing="false" onAction="#cadastrarServico" text="Serviço" />
             <MenuItem fx:id="cadOrcamento" mnemonicParsing="false" onAction="#cadastrarOrcamento" text="Orçamento" />
-            <MenuItem fx:id="cadOrcamento" mnemonicParsing="false" onAction="#cadastrarPeca" text="Peça" />
+            <MenuItem fx:id="cadPeca" mnemonicParsing="false" onAction="#cadastrarPeca" text="Peça" />
          </items>
       </SplitMenuButton>
       <Label layoutX="205.0" layoutY="126.0" text="ID da Peça:" />
@@ -52,9 +52,9 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="582.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="596.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Captura%20de%20tela%202022-11-13%20215941.png" />
+            <Image url="@Captura%20de%20tela_20221113_221234.png" />
          </image>
       </ImageView>
       <TextField fx:id="pecaId" layoutX="289.0" layoutY="122.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 69" />
