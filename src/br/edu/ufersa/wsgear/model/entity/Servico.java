@@ -24,20 +24,17 @@ public class Servico {
 	
 	public Servico(String nome) {
 		setNome(nome);
-		setDataInicialServico();
 	}
 
 	public Servico(String nome, double preco) {
 		setNome(nome);
 		setPreco(preco);
-		setDataInicialServico();
 	}
 
 	public Servico(String nome, double preco, String status) {
 		setNome(nome);
 		setPreco(preco);
 		setStatus(status);
-		setDataInicialServico();
 	}
 
 	public Servico(String nome, double preco, String status, String dataServico) {

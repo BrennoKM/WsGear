@@ -21,20 +21,17 @@ public class ServicoDTO {
 		
 		public ServicoDTO(String nome) {
 			setNome(nome);
-			setDataInicialServico();
 		}
 
 		public ServicoDTO(String nome, double preco) {
 			setNome(nome);
 			setPreco(preco);
-			setDataInicialServico();
 		}
 
 		public ServicoDTO(String nome, double preco, String status) {
 			setNome(nome);
 			setPreco(preco);
 			setStatus(status);
-			setDataInicialServico();
 		}
 
 		public ServicoDTO(String nome, double preco, String status, String dataServico) {
@@ -52,7 +49,6 @@ public class ServicoDTO {
 		}
 
 		public void setNome(String nome) {
-
 			if (!nome.isEmpty()) {
 				this.nome = nome;
 			} else {
