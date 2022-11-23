@@ -59,7 +59,7 @@
          </graphic>
       </Button>
       <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Home" />
-      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
