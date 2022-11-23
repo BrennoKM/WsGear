@@ -17,29 +17,110 @@ public class Telas extends Application{
 	public void start(Stage arg0) throws Exception {
 		setStage(arg0);
 		arg0.setTitle("Teste");
-		testeTela();
+		telaPesquisa();
 	}
 	
+	public static void telaPesquisa() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Pesquisa");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 	
+	public static void telaPesquisaPeca() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaPecaScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Pesquisa de Peças");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 	
+	public static void telaPesquisaAutomovel() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaAutomovelScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Pesquisa de Automoveis");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 	
+	public static void telaPesquisaServico() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaServicoScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Pesquisa de Serviços");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 	
+	public static void telaCadastroAutomovel() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroAutomovelScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Cadastro de Automovel");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 	
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// exemplo gadelha																						//
-	public static void testeTela() {																//
-		try {																								//
-			Parent root = FXMLLoader.load(Telas.class.getResource("view/resources/pesquisaScreen.fxml"));			//
-			Scene scene = new Scene (root);																	//
-			stage.setScene(scene);																			//
-			stage.setTitle("Teste");													//
-			stage.show();			
-			//teste
-		}																									//
-		catch(Exception e) {																				//
-			e.printStackTrace();																			//
-		}																									//
-	}																										//
-																								//
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public static void telaCadastroCliente() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroClienteScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Cadastro de Cliente");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
+	
+	public static void telaCadastroPeca() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroPecaScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Cadastro de Peça");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
+	
+	public static void telaCadastroServico() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroServicoScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Cadastro de Peça");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
+	}
 }

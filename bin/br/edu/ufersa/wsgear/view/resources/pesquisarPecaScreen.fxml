@@ -81,12 +81,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TableView layoutX="6.0" layoutY="157.0" prefHeight="217.0" prefWidth="690.0">
+      <TableView fx:id="tabelaPeca" layoutX="6.0" layoutY="157.0" prefHeight="217.0" prefWidth="690.0">
          <columns>
-            <TableColumn fx:id="idPecaColumn" prefWidth="102.0" text="idPeca" />
-            <TableColumn fx:id="NomeColumn" prefWidth="228.0" text="Nome" />
-            <TableColumn fx:id="FabricanteColumn" prefWidth="183.0" text="Fabricante" />
-            <TableColumn fx:id="ModeloColumn" prefWidth="122.0" text="Preço" />
+            <TableColumn fx:id="idPecaColumn" prefWidth="56.80001974105835" text="idPeca" />
+            <TableColumn fx:id="NomeColumn" prefWidth="259.19994354248047" text="Nome" />
+            <TableColumn fx:id="FabricanteColumn" prefWidth="134.4000244140625" text="Fabricante" />
+            <TableColumn fx:id="PrecoColumn" prefWidth="186.40005493164062" text="Preço" />
             <TableColumn fx:id="EditButtonColumn" minWidth="0.0" prefWidth="27.0" />
             <TableColumn fx:id="RemoveButtonColumn" prefWidth="27.0" />
          </columns>

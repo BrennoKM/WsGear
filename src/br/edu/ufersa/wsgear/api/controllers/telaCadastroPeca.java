@@ -18,5 +18,6 @@ public class telaCadastroPeca {
 			dto.setFab(pecaFabricante.toString());
 			dto.setPreco(Double.parseDouble(pecaPreco.toString()));
 			bo.inserir(dto);
+			Telas.telaPesquisaPeca();
 		}
 }
