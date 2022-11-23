@@ -36,9 +36,9 @@
             </Menu>
         </menus>
       </MenuBar>
-      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="582.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="596.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Captura%20de%20tela%202022-11-13%20215941.png" />
+            <Image url="@Captura%20de%20tela_20221113_221234.png" />
          </image>
       </ImageView>
       <Button fx:id="cadastrarButton" layoutX="309.0" layoutY="139.0" mnemonicParsing="false" onAction="#telaCadastrar" text="Cadastrar">
