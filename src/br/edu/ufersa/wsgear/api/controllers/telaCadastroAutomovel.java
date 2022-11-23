@@ -24,5 +24,6 @@ public class telaCadastroAutomovel {
 			dto.setPlaca(automovelPlaca.toString());
 			dto.setAno(Integer.parseInt(automovelAno.toString()));
 			bo.inserir(dto);
+			Telas.telaPesquisaAutomovel();
 		}
 }

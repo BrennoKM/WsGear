@@ -21,5 +21,6 @@ public class telaCadastroServico {
 			dto.setStatus(servicoStatus.toString());
 			dto.setDataServico(servicoDataInicio.toString());
 			bo.inserir(dto);
+			Telas.telaPesquisaServico();
 		}
 }
