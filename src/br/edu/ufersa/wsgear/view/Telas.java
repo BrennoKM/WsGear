@@ -33,7 +33,8 @@ public class Telas extends Application{
 			Scene scene = new Scene (root);																	//
 			stage.setScene(scene);																			//
 			stage.setTitle("Teste");													//
-			stage.show();																					//
+			stage.show();			
+			//teste
 		}																									//
 		catch(Exception e) {																				//
 			e.printStackTrace();																			//
