@@ -30,20 +30,20 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		
 	}
 	
-	public List<Automovel> listar(){
-		List<Automovel> automovels = new ArrayList<Automovel>();
+	public List<AutomovelDTO> listar(){
+		List<AutomovelDTO> automoveis = new ArrayList<AutomovelDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while(rs.next()) {
-				Automovel automovel = new Automovel();
+				AutomovelDTO automovel = new AutomovelDTO();
 				automovel.setMarca(rs.getString("marca"));
 				automovel.setModelo(rs.getString("modelo"));
 				automovel.setCor(rs.getNString("cor"));
 				automovel.setIdDono(rs.getLong("idDono"));
 				
-				automovels.add(automovel);
+				automoveis.add(automovel);
 			}
-			return automovels;
+			return automoveis;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

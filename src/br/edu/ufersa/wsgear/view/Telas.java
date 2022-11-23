@@ -29,10 +29,10 @@ public class Telas extends Application{
 	// exemplo gadelha																						//
 	public static void telaCadastroAluno() {																//
 		try {																								//
-			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroAluno.fxml"));			//
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/mainScreen.fxml"));			//
 			Scene scene = new Scene (root);																	//
 			stage.setScene(scene);																			//
-			stage.setTitle("Tela de Cadastro de Alunos");													//
+			stage.setTitle("Tela de Cadastro");													//
 			stage.show();																					//
 		}																									//
 		catch(Exception e) {																				//

@@ -48,12 +48,12 @@ public class PecaBO implements ServiceInterface<PecaDTO> {
 		}
 	}
 
-	public List<Peca> listar() {
-		List<Peca> pecas = new ArrayList<Peca>();
+	public List<PecaDTO> listar() {
+		List<PecaDTO> pecas = new ArrayList<PecaDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while (rs.next()) {
-				Peca peca = new Peca();
+				PecaDTO peca = new PecaDTO();
 				peca.setIdPeca(rs.getLong("idPeca"));
 				peca.setNome(rs.getString("Nome"));
 				peca.setFab(rs.getString("Fabricante"));

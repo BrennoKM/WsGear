@@ -31,12 +31,12 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 
 	}
 
-	public List<Servico> listar() {
-		List<Servico> servicos = new ArrayList<Servico>();
+	public List<ServicoDTO> listar() {
+		List<ServicoDTO> servicos = new ArrayList<ServicoDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while (rs.next()) {
-				Servico servico = new Servico();
+				ServicoDTO servico = new ServicoDTO();
 				servico.setIdServico(rs.getInt("idServico"));
 				servico.setNome(rs.getString("nome"));
 				servico.setPreco(rs.getDouble("preco"));

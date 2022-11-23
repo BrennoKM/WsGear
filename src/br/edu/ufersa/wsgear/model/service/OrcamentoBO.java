@@ -50,12 +50,12 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 		}
 	}
 
-	public List<Orcamento> listar() {
-		List<Orcamento> orcamentos = new ArrayList<Orcamento>();
+	public List<OrcamentoDTO> listar() {
+		List<OrcamentoDTO> orcamentos = new ArrayList<OrcamentoDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while (rs.next()) {
-				Orcamento orcamento = new Orcamento();
+				OrcamentoDTO orcamento = new OrcamentoDTO();
 				orcamento.setIdOrcamento(rs.getLong("idOrcamento"));
 				orcamento.setValor(rs.getDouble("Valor"));
 				orcamento.setPeca(new Peca(rs.getLong("orcIdPeca")));

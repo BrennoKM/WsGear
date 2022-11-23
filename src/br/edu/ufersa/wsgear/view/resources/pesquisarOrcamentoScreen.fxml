@@ -81,12 +81,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TableView layoutX="6.0" layoutY="157.0" prefHeight="217.0" prefWidth="690.0">
+      <TableView fx:id="tabelaOrcamento" layoutX="6.0" layoutY="157.0" prefHeight="217.0" prefWidth="690.0">
          <columns>
             <TableColumn fx:id="idPecaColumn" prefWidth="102.0" text="idPeca" />
             <TableColumn fx:id="idServicoColumn" prefWidth="228.0" text="idServico" />
             <TableColumn fx:id="idAutomovelColumn" prefWidth="183.0" text="idAutomovel" />
-            <TableColumn fx:id="ModeloColumn" prefWidth="122.0" text="Preço" />
+            <TableColumn fx:id="PrecoColumn" prefWidth="122.0" text="Preço" />
             <TableColumn fx:id="EditButtonColumn" minWidth="0.0" prefWidth="27.0" />
             <TableColumn fx:id="RemoveButtonColumn" prefWidth="27.0" />
          </columns>
