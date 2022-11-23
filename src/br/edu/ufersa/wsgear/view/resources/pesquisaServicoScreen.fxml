@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -16,81 +14,53 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaPesquisaServico">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="700.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Editar">
-               <items>
-                  <MenuItem fx:id="menuCadastrar" mnemonicParsing="false" onAction="#telaCadastrar" text="Cadastrar" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Concluir Serviço">
-               <items>
-                  <MenuItem fx:id="menuConcluirServico" mnemonicParsing="false" onAction="#telaConcluirServico" text="endService" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Relatório">
-               <items>
-                  <MenuItem fx:id="menuRelatorio" mnemonicParsing="false" onAction="#telaRelatorio" text="report" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Pesquisar">
-               <items>
-                  <MenuItem fx:id="menuPesquisar" mnemonicParsing="false" onAction="#telaPesquisar" text="Search" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="596.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Captura%20de%20tela_20221113_221234.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="149.0" layoutY="53.0" text="Pesquisando:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="pesquisaContent" layoutX="237.0" layoutY="51.0" prefHeight="25.0" prefWidth="260.0" promptText="Insira a pesquisa aqui." />
-      <Label layoutX="174.0" layoutY="88.0" text="Por...">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <SplitMenuButton fx:id="pesquisaTipo" layoutX="237.0" layoutY="88.0" mnemonicParsing="false" onMouseDragReleased="#pesquisar" prefHeight="25.0" prefWidth="260.0" text="O que estamos procurando?">
-         <items>
-            <MenuItem fx:id="pesAutomovelPlaca" mnemonicParsing="false" onAction="#pesquisarAutomovel" text="Automóvel - Placa" />
-            <MenuItem fx:id="pesAutomovelCliente" mnemonicParsing="false" onAction="#pesquisarAutomovel" text="Automóvel - Cliente" />
-            <MenuItem fx:id="pesOrcamentoVeiculo" mnemonicParsing="false" onAction="#pesquisarOrcamento" text="Orçamento - ID do Veículo" />
-            <MenuItem fx:id="pesOrcamentoCliente" mnemonicParsing="false" onAction="#pesquisarOrcamento" text="Orçamento - ID do Cliente" />
-            <MenuItem fx:id="pesOrcamentoPeriodo" mnemonicParsing="false" onAction="#pesquisarOrcamento" text="Orçamento - Período" />
-            <MenuItem fx:id="pesPecaNome" mnemonicParsing="false" onAction="#pesquisarPeca" text="Peça - Nome" />
-            <MenuItem fx:id="pesPecaFabricante" mnemonicParsing="false" onAction="#pesquisarPeca" text="Peça - Fabricante" />
-            <MenuItem fx:id="pesPecaAutomovel" mnemonicParsing="false" onAction="#pesquisarPeca" text="Peça - Automóvel" />
-            <MenuItem fx:id="pesServicoNome" mnemonicParsing="false" onAction="#pesquisarServico" text="Serviço - Nome" />
-         </items>
-      </SplitMenuButton>
-      <Label layoutX="149.0" layoutY="127.0" text="De">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="periodo0" layoutX="174.0" layoutY="125.0" prefHeight="25.0" prefWidth="139.0" promptText="dd/mm/aaaa" />
-      <DatePicker fx:id="periodo1" layoutX="358.0" layoutY="125.0" prefHeight="25.0" prefWidth="139.0" promptText="dd/mm/aaaa" />
-      <Label layoutX="330.0" layoutY="127.0" text="até">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TableView layoutX="6.0" layoutY="157.0" prefHeight="217.0" prefWidth="690.0">
+      <TableView layoutX="12.0" layoutY="180.0" prefHeight="244.0" prefWidth="680.0">
          <columns>
             <TableColumn fx:id="idServicoColumn" prefWidth="75.0" text="idServico" />
             <TableColumn fx:id="NomeColumn" prefWidth="199.0" text="Nome" />
             <TableColumn fx:id="PrecoColumn" prefWidth="124.0" text="Preço" />
-            <TableColumn fx:id="DataServicoColumn" prefWidth="122.0" text="Data Inicial" />
-            <TableColumn fx:id="StatusColumn" prefWidth="107.0" text="Status" />
-            <TableColumn fx:id="EditButtonColumn" minWidth="5.0" prefWidth="30.0" />
-            <TableColumn fx:id="RemoveButtonColumn" prefWidth="32.0" />
+            <TableColumn fx:id="DataServicoColumn" prefWidth="154.0" text="Data Inicial" />
+            <TableColumn fx:id="StatusColumn" prefWidth="127.0" text="Status" />
          </columns>
       </TableView>
+      <Label layoutX="164.0" layoutY="68.0" text="Pesquisando...">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pesquisaContent" layoutX="258.0" layoutY="139.0" prefHeight="25.0" prefWidth="233.0" promptText="Insira a pesquisa aqui." />
+      <Label layoutX="166.0" layoutY="141.0" text="Por...">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label disable="true" layoutX="164.0" layoutY="103.0" text="De">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="periodo0" disable="true" layoutX="201.0" layoutY="101.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
+      <DatePicker fx:id="periodo1" disable="true" layoutX="381.0" layoutY="100.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
+      <Label disable="true" layoutX="355.0" layoutY="103.0" text="até">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="pesquisaTipoBox" layoutX="260.0" layoutY="65.0" prefHeight="25.0" prefWidth="260.0" />
+      <Button fx:id="botaoPesquisa" layoutX="491.0" layoutY="134.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="20.0" prefWidth="30.0" style="-fx-background-color: #FFFFFF;">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@searchicon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wsgearLogo.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -21,35 +21,35 @@
             <TableColumn fx:id="MarcaColumn" prefWidth="87.0" text="Marca" />
             <TableColumn fx:id="ModeloColumn" prefWidth="82.0" text="Modelo" />
             <TableColumn fx:id="CorColumn" prefWidth="60.0" text="Cor" />
-            <TableColumn fx:id="PlacaColumn" prefWidth="110.0" text="Placa" />
-            <TableColumn fx:id="AnoColumn" prefWidth="66.0" text="Ano" />
+            <TableColumn fx:id="PlacaColumn" prefWidth="133.0" text="Placa" />
+            <TableColumn fx:id="AnoColumn" prefWidth="107.0" text="Ano" />
         </columns>
       </TableView>
-      <Label layoutX="164.0" layoutY="75.0" text="Pesquisando...">
+      <Label layoutX="164.0" layoutY="68.0" text="Pesquisando...">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="pesquisaContent" layoutX="258.0" layoutY="146.0" prefHeight="25.0" prefWidth="233.0" promptText="Insira a pesquisa aqui." />
-      <Label layoutX="166.0" layoutY="148.0" text="Por...">
+      <TextField fx:id="pesquisaContent" layoutX="258.0" layoutY="139.0" prefHeight="25.0" prefWidth="233.0" promptText="Insira a pesquisa aqui." />
+      <Label layoutX="166.0" layoutY="141.0" text="Por...">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label disable="true" layoutX="164.0" layoutY="110.0" text="De">
+      <Label disable="true" layoutX="164.0" layoutY="103.0" text="De">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="periodo0" disable="true" layoutX="201.0" layoutY="108.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
-      <DatePicker fx:id="periodo1" disable="true" layoutX="381.0" layoutY="107.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
-      <Label disable="true" layoutX="355.0" layoutY="110.0" text="até">
+      <DatePicker fx:id="periodo0" disable="true" layoutX="201.0" layoutY="101.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
+      <DatePicker fx:id="periodo1" disable="true" layoutX="381.0" layoutY="100.0" prefHeight="25.0" prefWidth="140.0" promptText="dd/mm/aaaa" />
+      <Label disable="true" layoutX="355.0" layoutY="103.0" text="até">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="pesquisaTipoBox" layoutX="260.0" layoutY="72.0" prefHeight="25.0" prefWidth="260.0" />
-      <Button fx:id="botaoPesquisa" layoutX="491.0" layoutY="141.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="20.0" prefWidth="30.0" style="-fx-background-color: #FFFFFF;">
+      <ChoiceBox fx:id="pesquisaTipoBox" layoutX="260.0" layoutY="65.0" prefHeight="25.0" prefWidth="260.0" />
+      <Button fx:id="botaoPesquisa" layoutX="491.0" layoutY="134.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="20.0" prefWidth="30.0" style="-fx-background-color: #FFFFFF;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -58,7 +58,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
