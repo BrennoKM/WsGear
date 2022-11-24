@@ -7,7 +7,7 @@ import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 
 public class Cliente {
 
-	private static int contIdCliente;
+	private static int contIdCliente = 1;
 	private int idCliente;
 
 	private String nome;

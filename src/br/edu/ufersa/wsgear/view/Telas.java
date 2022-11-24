@@ -34,7 +34,7 @@ public class Telas extends Application{
 		
 		ClienteDTO c = new ClienteDTO();
 		c.setCpf("111.222.333-44");
-		c.setNome("Galdino");
+		c.setNome("Galdino 3");
 		c.setTelefone("92299");
 		//c.setEndereco(Endereco.converter(e));
 		
@@ -48,11 +48,11 @@ public class Telas extends Application{
 		
 		a.setAno(2010);
 		a.setCor("vermelho");
-		a.setCpfDono("812");
+		a.setCpfDono(c.getCpf());
 		a.setMarca("Tesla");
-		a.setModelo("modelo 2");
-		a.setPlaca("GBC7J23");
-		a.setIdDono(7);
+		a.setModelo("modelo X");
+		a.setPlaca("LLLKJ27");
+		a.setIdDono(c.getIdCliente());
 
 		aBO.inserir(a);
 		
