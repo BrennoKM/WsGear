@@ -5,8 +5,9 @@ import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 public class Automovel {
 	// Atributos privados
 
-	private Long idAutomovel;
-	private Long idDono;
+	private static int contIdAutomovel;
+	private int idAutomovel;
+	private int idDono;
 
 	private Cliente dono;
 	private Orcamento orcamentoServico;
@@ -98,16 +99,21 @@ public class Automovel {
 			this.dono = new Cliente("Cliente sem nome");
 	}
 
-	public void setIdDono(Long idDono) {
+	public void setIdDono(int idDono) {
 		if (idDono >= 0) {
 			this.idDono = idDono;
 		}
 	}
 
-	public void setIdAutomovel(Long idAutomovel) {
+	public void setIdAutomovel(int idAutomovel) {
 		if (idAutomovel >= 0) {
 			this.idAutomovel = idAutomovel;
 		}
+	}
+	
+	public void gerarIdAutomovel() {
+		this.idAutomovel =+ contIdAutomovel;
+		contIdAutomovel++;
 	}
 
 	public void setOrcamentoServico(Orcamento orcamentoServico) {
@@ -143,11 +149,11 @@ public class Automovel {
 		return this.dono;
 	}
 
-	public Long getIdDono() {
+	public int getIdDono() {
 		return this.idDono;
 	}
 
-	public Long getIdAutomovel() {
+	public int getIdAutomovel() {
 		return this.idAutomovel;
 	}
 
@@ -165,12 +171,12 @@ public class Automovel {
 		a.setAno(dto.getAno());
 		a.setCor(dto.getCor());
 		a.setDono(dto.getDono());
-		//a.setIdDono(dto.getIdDono());
+		a.setIdDono(dto.getIdDono());
 		a.setMarca(dto.getMarca());
 		a.setModelo(dto.getModelo());
 		a.setOrcamentoServico(dto.getOrcamentoServico());
 		a.setPlaca(dto.getPlaca());
-		//a.setIdAutomovel(dto.getIdAutomovel());
+		a.setIdAutomovel(dto.getIdAutomovel());
 		return a;
 	}
 

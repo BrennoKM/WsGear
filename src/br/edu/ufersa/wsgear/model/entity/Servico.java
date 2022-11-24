@@ -8,7 +8,8 @@ import br.edu.ufersa.wsgear.api.dto.ServicoDTO;
 
 public class Servico {
 	// Garantia de integridade ---------------------------------------------------
-	private Long idServico;
+	private static int contIdServico;
+	private int idServico;
 	private String nome;
 	private double preco;
 	private LocalDate dataServico;
@@ -17,9 +18,9 @@ public class Servico {
 	// Construtores ---------------------------------------------------
 	public Servico() {
 	}
-
-	public Servico(long idServico) {
-		setIdServico(idServico);
+	
+	public Servico(int id) {
+		setIdServico(id);
 	}
 	
 	public Servico(String nome) {
@@ -46,9 +47,16 @@ public class Servico {
 
 	// Metodos set ---------------------------------------------------
 
-	public void setIdServico(long l) {
+	
+
+	public void setIdServico(int l) {
 
 		this.idServico = l;
+	}
+	
+	public void gerarIdServico() {
+		this.idServico =+ contIdServico;
+		contIdServico++;
 	}
 
 	public void setNome(String nome) {
@@ -78,7 +86,7 @@ public class Servico {
 	}
 	// Metodos get ---------------------------------------------------
 
-	public Long getIdServico() {
+	public int getIdServico() {
 		return idServico;
 	}
 

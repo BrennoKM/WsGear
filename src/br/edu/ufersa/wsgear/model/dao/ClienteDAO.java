@@ -10,18 +10,15 @@ import br.edu.ufersa.wsgear.model.entity.Cliente;
 public class ClienteDAO extends BaseDAO<Cliente> {
 
 	public boolean inserir(Cliente cliente) {
-		String sql = "INSERT INTO tb_cliente  (cpf,nome,telefone) VALUES (?,?,?);";
+		String sql = "INSERT INTO tb_cliente  (CPF,Nome,Telefone,idCliente) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, cliente.getCpf());
 			pst.setString(2, cliente.getNome());
 			pst.setString(3, cliente.getTelefone());
+			cliente.gerarIdCliente();
+			pst.setInt(4, cliente.getIdCliente());
 			pst.execute();
-			
-		//	ResultSet generatedKeys = pst.getGeneratedKeys();
-		//	if(generatedKeys.next()) {
-		//		cliente.setIdCliente(generatedKeys.getLong("idCliente"));
-		//	}
 			
 			return true;
 			
@@ -32,7 +29,7 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 	}
 
 	public boolean deletar(Cliente cliente) {
-		String sql = "DELETE FROM tb_cliente WHERE cpf=?;";
+		String sql = "DELETE FROM tb_cliente WHERE CPF=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, cliente.getCpf());
@@ -48,7 +45,7 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 	}
 
 	public boolean alterar(Cliente cliente) {
-		String sql = "UPDATE tb_cliente SET cpf=?,nome=?,telefone=? WHERE cpf=? ";
+		String sql = "UPDATE tb_cliente SET CPF=?,Nome=?,Telefone=? WHERE CPF=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, cliente.getCpf());
@@ -66,16 +63,16 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 	}
 
 	public Cliente findById(Cliente e) {
-		String sql = "SELECT * FROM tb_cliente WHERE id=? ;";
+		String sql = "SELECT * FROM tb_cliente WHERE idCliente=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, e.getIdCliente());
+			pst.setInt(1, e.getIdCliente());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				Cliente c = new Cliente();
-				c.setCpf(rs.getString("cpf"));
-				c.setNome(rs.getString("nome"));
-				c.setTelefone(rs.getString("telefone"));
+				c.setCpf(rs.getString("CPF"));
+				c.setNome(rs.getString("Nome"));
+				c.setTelefone(rs.getString("Telefone"));
 				c.setIdCliente(e.getIdCliente());
 				return c;
 			} else
@@ -97,8 +94,8 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 				Cliente c = new Cliente();
 				c.setCpf(rs.getString("CPF"));
 				c.setNome(rs.getString("Nome"));
-				c.setTelefone(rs.getString("telefone"));
-				c.setIdCliente(rs.getLong("idCliente"));
+				c.setTelefone(rs.getString("Telefone"));
+				c.setIdCliente(rs.getInt("idCliente"));
 				return c;
 			} else
 				return null;
@@ -151,23 +148,6 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 		}
 	}
 
-	public Cliente buscar(Cliente cliente) {
-		String sql = "SELECT * FROM tb_cliente WHERE cpf=? ;";
-		try {
-			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setString(1, cliente.getCpf());
-			ResultSet rs = pst.executeQuery();
-			if (rs.next()) {
-				return cliente;
-			} else
-				return null;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-
-	}
 
 	public ResultSet buscar() {
 		String sql = "SELECT * FROM tb_cliente;";

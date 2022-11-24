@@ -44,9 +44,4 @@ public class BaseDAO<Entity> implements BaseInterDAO<Entity> {
 		return null;
 	}
 
-	@Override
-	public Entity findByNome(Entity e) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

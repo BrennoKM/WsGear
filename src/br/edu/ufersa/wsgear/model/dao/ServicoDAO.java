@@ -9,10 +9,11 @@ import br.edu.ufersa.wsgear.model.entity.Servico;
 public class ServicoDAO extends BaseDAO<Servico> {
 	
 	public boolean inserir(Servico servico) {
-		String sql = "INSERT INTO tb_servico  (idServico,nome,preco,dataServico,status) VALUES (?,?,?,?,?);";
+		String sql = "INSERT INTO tb_servico  (idServico,Nome,Preco,dataServico,statusServico) VALUES (?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, servico.getIdServico());
+			servico.gerarIdServico();
+			pst.setInt(1, servico.getIdServico());
 			pst.setString(2, servico.getNome());
 			pst.setDouble(3, servico.getPreco());
 			pst.setDate(4, servico.getDataServico());
@@ -21,7 +22,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 			
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();
 		//	if(generatedKeys.next()) {
-		//		servico.setIdServico(generatedKeys.getLong("idServico"));
+		//		servico.setIdServico(generatedKeys.getInt("idServico"));
 		//	}
 			
 			return true;
@@ -36,7 +37,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 		String sql = "DELETE FROM tb_servico WHERE idServico=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, servico.getIdServico());
+			pst.setInt(1, servico.getIdServico());
 			pst.execute();
 
 			return true;
@@ -52,7 +53,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 		String sql = "UPDATE tb_servico SET idServico=?,nome=?,preco=?,dataServico=?,status=? WHERE idServico=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, servico.getIdServico());
+			pst.setInt(1, servico.getIdServico());
 			pst.setString(2, servico.getNome());
 			pst.setDouble(3, servico.getPreco());
 			pst.setDate(4, servico.getDataServico());
@@ -71,11 +72,11 @@ public class ServicoDAO extends BaseDAO<Servico> {
 		String sql = "SELECT * FROM tb_servico WHERE id=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, e.getIdServico());
+			pst.setInt(1, e.getIdServico());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				Servico s = new Servico();
-				s.setIdServico(rs.getLong("IdServico"));
+				s.setIdServico(rs.getInt("IdServico"));
 				s.setNome(rs.getString("Nome"));
 				s.setPreco(rs.getDouble("Preco"));
 				s.setDataServico(rs.getString("DataServico"));
@@ -109,7 +110,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			switch (field) {
 			case "IdServico":
-				pst.setLong(1, e.getIdServico());
+				pst.setInt(1, e.getIdServico());
 				break;
 
 			case "Nome":
@@ -129,7 +130,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 				break;
 
 			default:
-				pst.setLong(1, e.getIdServico());
+				pst.setInt(1, e.getIdServico());
 			}
 
 			ResultSet rs = pst.executeQuery();
@@ -145,7 +146,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 		String sql = "UPDATE tb_servico SET status=? WHERE idServico=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, servico.getIdServico());
+			pst.setInt(1, servico.getIdServico());
 			pst.setString(2, "Finalizado");
 			pst.executeUpdate();
 			return true;

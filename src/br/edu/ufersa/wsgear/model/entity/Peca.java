@@ -3,7 +3,8 @@ package br.edu.ufersa.wsgear.model.entity;
 import br.edu.ufersa.wsgear.api.dto.PecaDTO;
 
 public class Peca {
-	private Long idPeca; // Identificador: Possivelmente um Enum
+	private static int contIdPeca;
+	private int idPeca; // Identificador: Possivelmente um Enum
 	private String nome; // Nome
 	private String fab; // Fabricante
 	private double preco; // Valor
@@ -11,10 +12,10 @@ public class Peca {
 	public Peca() {
 		setNome("");
 		setFab("");
-		setPreco(0.0);
+		setPreco(10.0);
 	}
 	
-	public Peca(Long idPeca) {
+	public Peca(int idPeca) {
 		setIdPeca(idPeca);
 	}
 	
@@ -24,11 +25,16 @@ public class Peca {
 		setPreco(preco);
 	}
 
-	public void setIdPeca(Long l) {
+	public void setIdPeca(int l) {
 		if (l > 0)
 			this.idPeca = l;
 	}
-
+	
+	public void gerarIdPeca() {
+		this.idPeca =+ contIdPeca;
+		contIdPeca++;
+	}
+	
 	public void setNome(String nome) {
 		if (!nome.isBlank() || !nome.isEmpty())
 			this.nome = nome;
@@ -62,7 +68,7 @@ public class Peca {
 		return this.fab;
 	}
 
-	public Long getIdPeca() {
+	public int getIdPeca() {
 		return this.idPeca;
 	}
 	

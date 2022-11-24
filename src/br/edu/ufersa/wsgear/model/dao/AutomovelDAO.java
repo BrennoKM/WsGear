@@ -8,7 +8,7 @@ import br.edu.ufersa.wsgear.model.entity.Automovel;
 
 public class AutomovelDAO extends BaseDAO<Automovel> {
 	public boolean inserir(Automovel automovel) {
-		String sql = "INSERT INTO tb_automovel  (marca,modelo,cor,placa,ano) VALUES (?,?,?,?,?);";
+		String sql = "INSERT INTO tb_automovel  (Marca,Modelo,Cor,Placa,Ano,idAutomovel,idDono,CPFdono) VALUES (?,?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, automovel.getMarca());
@@ -16,6 +16,10 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			pst.setString(3, automovel.getCor());
 			pst.setString(4, automovel.getPlaca());
 			pst.setInt(5, automovel.getAno());
+			automovel.gerarIdAutomovel();
+			pst.setInt(6, automovel.getIdAutomovel());
+			pst.setInt(7, automovel.getIdDono());
+			pst.setString(8, automovel.getCpfDono());
 			//
 			//
 			pst.execute();
@@ -46,7 +50,7 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 	}
 
 	public boolean alterar(Automovel automovel) {
-		String sql = "UPDATE tb_automovel SET marca=?,modelo=?,cor=?,placa=?,ano=? WHERE idDono=? ";
+		String sql = "UPDATE tb_automovel SET Marca=?,Modelo=?,Cor=?,Placa=?,Ano=? WHERE idDono=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, automovel.getMarca());
@@ -72,12 +76,12 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				Automovel a = new Automovel();
-				a.setMarca(rs.getString("marca"));
-				a.setModelo(rs.getString("modelo"));
-				a.setCor(rs.getString("cor"));
-				a.setPlaca(rs.getString("placa"));
-				a.setIdDono(rs.getLong("idDono"));
-				a.setIdAutomovel(rs.getLong("idAutomovel"));
+				a.setMarca(rs.getString("Marca"));
+				a.setModelo(rs.getString("Modelo"));
+				a.setCor(rs.getString("Cor"));
+				a.setPlaca(rs.getString("Placa"));
+				a.setIdDono(rs.getInt("idDono"));
+				a.setIdAutomovel(rs.getInt("idAutomovel"));
 				return a;
 			} else
 				return null;
@@ -106,15 +110,15 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			switch (field) {
-			case "marca":
+			case "Marca":
 				pst.setString(1, e.getMarca());
 				break;
 
-			case "modelo":
+			case "Modelo":
 				pst.setString(1, e.getModelo());
 				break;
 
-			case "placa":
+			case "Placa":
 				pst.setString(1, e.getPlaca());
 				break;
 

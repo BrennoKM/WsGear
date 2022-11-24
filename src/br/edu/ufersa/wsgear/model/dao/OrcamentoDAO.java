@@ -8,17 +8,20 @@ import br.edu.ufersa.wsgear.model.entity.Orcamento;
 
 public class OrcamentoDAO extends BaseDAO<Orcamento>{
 	public boolean inserir(Orcamento o) {
-		String cmnd_ins = "INSERT INTO tb_orcamento (orcIdPeca, orcIdServico, Valor) VALUES (?,?,?);";
+		String cmnd_ins = "INSERT INTO tb_orcamento (orcIdPeca, orcIdServico, Valor, idOrcamento, orcIdAutomovel) VALUES (?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, o.getPecas().get(0).getIdPeca());
-			pst.setLong(2, o.getServicos().get(0).getIdServico());
+			pst.setInt(1, o.getPecas().get(0).getIdPeca());
+			pst.setInt(2, o.getServicos().get(0).getIdServico());
 			pst.setDouble(3, o.getValor());
+			o.gerarIdOrcamento();
+			pst.setInt(4, o.getIdOrcamento());
+			pst.setInt(5, o.getIdAutomovel());
 			pst.execute();
 			
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();
 		//	if(generatedKeys.next()) {
-		//		o.setIdOrcamento(generatedKeys.getLong("idOrcamento"));
+		//		o.setIdOrcamento(generatedKeys.getInt("idOrcamento"));
 		//	}
 			return true;		
 		
@@ -32,7 +35,7 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 		String cmnd_ins = "DELETE FROM tb_orcamento WHERE idOrcamento=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, o.getIdOrcamento());
+			pst.setInt(1, o.getIdOrcamento());
 			pst.execute();
 			return true;		
 		
@@ -47,10 +50,10 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 		String cmnd_ins = "UPDATE tb_orcamento SET orcIdPeca=? , orcIdServico=? , Valor=? WHERE idOrcamento=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, o.getPecas().get(0).getIdPeca());
-			pst.setLong(2, o.getServicos().get(0).getIdServico());
+			pst.setInt(1, o.getPecas().get(0).getIdPeca());
+			pst.setInt(2, o.getServicos().get(0).getIdServico());
 			pst.setDouble(3, o.getValor());
-			pst.setLong(4, o.getIdOrcamento());
+			pst.setInt(4, o.getIdOrcamento());
 			pst.execute();
 			return true;		
 		
@@ -63,13 +66,13 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 		String cmnd_ins = "SELECT * FROM tb_orcamento WHERE idOrcamento=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, orcamento.getIdOrcamento());
+			pst.setInt(1, orcamento.getIdOrcamento());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				Orcamento o = new Orcamento();
-				o.setIdOrcamento(rs.getLong("idOrcamento"));
-				o.getPecas().get(0).setIdPeca(rs.getLong("orcIdPeca"));
-				o.getServicos().get(0).setIdServico(rs.getLong("orcIdServico"));
+				o.setIdOrcamento(rs.getInt("idOrcamento"));
+				o.getPecas().get(0).setIdPeca(rs.getInt("orcIdPeca"));
+				o.getServicos().get(0).setIdServico(rs.getInt("orcIdServico"));
 				o.setValor(rs.getDouble("Valor"));
 				return o;
 			}
@@ -100,19 +103,19 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 			switch(field)
 			{
 			case "idOrcamento":
-				pst.setLong(1, o.getIdOrcamento());
+				pst.setInt(1, o.getIdOrcamento());
 				break;
 			case "orcIdPeca":
-				pst.setLong(1, o.getPecas().get(0).getIdPeca());
+				pst.setInt(1, o.getPecas().get(0).getIdPeca());
 				break;
 			case "orcIdServico":
-				pst.setLong(1, o.getServicos().get(0).getIdServico());
+				pst.setInt(1, o.getServicos().get(0).getIdServico());
 				break;
 			case "Valor":
 				pst.setDouble(1, o.getValor());
 				break;
 			default:
-				pst.setLong(1, o.getIdOrcamento());
+				pst.setInt(1, o.getIdOrcamento());
 			}
 			
 			ResultSet rs = pst.executeQuery();

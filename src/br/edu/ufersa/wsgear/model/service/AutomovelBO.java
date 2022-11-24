@@ -15,7 +15,7 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 	BaseInterDAO<Automovel> dao = new AutomovelDAO();
 	public boolean inserir(AutomovelDTO automovelDTO) {
 		Automovel automovel = Automovel.conveter(automovelDTO);
-		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
+		ResultSet rs = dao.findBySpecifiedField(automovel, "Placa");
 		try {
 			if(rs==null || !(rs.next()) ) {
 				if(dao.inserir(automovel) == true)
@@ -36,10 +36,10 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		try {
 			while(rs.next()) {
 				AutomovelDTO automovel = new AutomovelDTO();
-				automovel.setMarca(rs.getString("marca"));
-				automovel.setModelo(rs.getString("modelo"));
-				automovel.setCor(rs.getNString("cor"));
-				automovel.setIdDono(rs.getLong("idDono"));
+				automovel.setMarca(rs.getString("Marca"));
+				automovel.setModelo(rs.getString("Modelo"));
+				automovel.setCor(rs.getNString("Cor"));
+				automovel.setIdDono(rs.getInt("idDono"));
 				
 				automoveis.add(automovel);
 			}

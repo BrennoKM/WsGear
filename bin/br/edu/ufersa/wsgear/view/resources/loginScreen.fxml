@@ -31,5 +31,6 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <Button layoutX="358.0" layoutY="234.0" mnemonicParsing="false" text="Cadastrar" />
    </children>
 </Pane>

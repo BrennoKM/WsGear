@@ -54,7 +54,7 @@ public class PecaBO implements ServiceInterface<PecaDTO> {
 		try {
 			while (rs.next()) {
 				PecaDTO peca = new PecaDTO();
-				peca.setIdPeca(rs.getLong("idPeca"));
+				peca.setIdPeca(rs.getInt("idPeca"));
 				peca.setNome(rs.getString("Nome"));
 				peca.setFab(rs.getString("Fabricante"));
 				peca.setPreco(rs.getDouble("Preco"));

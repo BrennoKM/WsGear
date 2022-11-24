@@ -16,7 +16,7 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 	public boolean inserir(ClienteDTO clienteDTO) {
 		Cliente cliente = Cliente.converter(clienteDTO);
 
-		ResultSet rs = dao.findBySpecifiedField(cliente, "cpf");
+		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
 		try {
 			if (rs == null || !(rs.next())) {
 				if (dao.inserir(cliente) == true)
@@ -38,10 +38,10 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 		try {
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
-				cliente.setCpf(rs.getString("cpf"));
-				cliente.setNome(rs.getString("nome"));
-				cliente.setTelefone(rs.getNString("telefone"));
-				cliente.setIdCliente(rs.getLong("idCliente"));
+				cliente.setCpf(rs.getString("CPF"));
+				cliente.setNome(rs.getString("Nome"));
+				cliente.setTelefone(rs.getNString("Telefone"));
+				cliente.setIdCliente(rs.getInt("idCliente"));
 
 				clientes.add(cliente);
 			}
@@ -52,26 +52,10 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 		}
 	}
 
-	public Long buscarId(ClienteDTO clienteDTO) {
-		Cliente cliente = Cliente.converter(clienteDTO);
-
-		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
-		try {
-			if (rs != null && rs.next()) {
-				cliente = dao.findByNome(cliente);
-				return cliente.getIdCliente();
-			} else
-				return null;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
 	public boolean alterar(ClienteDTO clienteDTO) {
 		Cliente cliente = Cliente.converter(clienteDTO);
 
-		ResultSet rs = dao.findBySpecifiedField(cliente, "cpf");
+		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
 		try {
 			if (rs != null && rs.next()) {
 				if (dao.alterar(cliente) == true)
@@ -89,7 +73,7 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 	public boolean deletar(ClienteDTO clienteDTO) {
 		Cliente cliente = Cliente.converter(clienteDTO);
 
-		ResultSet rs = dao.findBySpecifiedField(cliente, "cpf");
+		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
 		try {
 			if (rs != null && rs.next()) {
 				if (dao.deletar(cliente) == true)

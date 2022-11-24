@@ -5,92 +5,90 @@ import java.time.LocalDate;
 
 public class ServicoDTO {
 	// Garantia de integridade ---------------------------------------------------
-		private Long idServico;
-		private String nome;
-		private double preco;
-		private LocalDate dataServico;
-		private String status;
+	private int idServico;
+	private String nome;
+	private double preco;
+	private LocalDate dataServico;
+	private String status;
 
-		// Construtores ---------------------------------------------------
-		public ServicoDTO() {
+	// Construtores ---------------------------------------------------
+	public ServicoDTO() {
+	}
+	
+	public ServicoDTO(String nome) {
+		setNome(nome);
+	}
+
+	public ServicoDTO(String nome, double preco) {
+		setNome(nome);
+		setPreco(preco);
+	}
+
+	public ServicoDTO(String nome, double preco, String status) {
+		setNome(nome);
+		setPreco(preco);
+		setStatus(status);
+	}
+
+	public ServicoDTO(String nome, double preco, String status, String dataServico) {
+		setNome(nome);
+		setPreco(preco);
+		setStatus(status);
+		setDataServico(dataServico);
+	}
+
+	// Metodos set ---------------------------------------------------
+
+	public void setIdServico(int l) {
+
+		this.idServico = l;
+	}
+	
+
+	public void setNome(String nome) {
+
+		if (!nome.isEmpty()) {
+			this.nome = nome;
+		} else {
+			this.nome = "ServiÃ§o";
 		}
+	}
 
-		public ServicoDTO(Long idServico) {
-			setIdServico(idServico);
-		}
-		
-		public ServicoDTO(String nome) {
-			setNome(nome);
-		}
+	public void setPreco(double preco) {
 
-		public ServicoDTO(String nome, double preco) {
-			setNome(nome);
-			setPreco(preco);
-		}
+		this.preco = preco;
+	}
 
-		public ServicoDTO(String nome, double preco, String status) {
-			setNome(nome);
-			setPreco(preco);
-			setStatus(status);
-		}
+	public void setDataServico(String dataServico) {
+		this.dataServico = LocalDate.parse(dataServico);
+	}
 
-		public ServicoDTO(String nome, double preco, String status, String dataServico) {
-			setNome(nome);
-			setPreco(preco);
-			setStatus(status);
-			setDataServico(dataServico);
-		}
+	public void setDataInicialServico() {
+		this.dataServico = LocalDate.now();
+	}
 
-		// Metodos set ---------------------------------------------------
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	// Metodos get ---------------------------------------------------
 
-		public void setIdServico(long l) {
+	public int getIdServico() {
+		return idServico;
+	}
 
-			this.idServico = l;
-		}
+	public String getNome() {
+		return nome;
+	}
 
-		public void setNome(String nome) {
-			if (!nome.isEmpty()) {
-				this.nome = nome;
-			} else {
-				this.nome = "ServiÃ§o";
-			}
-		}
+	public double getPreco() {
+		return preco;
+	}
 
-		public void setPreco(double preco) {
+	public Date getDataServico() {
+		return Date.valueOf(dataServico);
+	}
 
-			this.preco = preco;
-		}
-
-		public void setDataServico(String dataServico) {
-			this.dataServico = LocalDate.parse(dataServico);
-		}
-
-		public void setDataInicialServico() {
-			this.dataServico = LocalDate.now();
-		}
-
-		public void setStatus(String status) {
-			this.status = status;
-		}
-		// Metodos get ---------------------------------------------------
-
-		public Long getIdServico() {
-			return idServico;
-		}
-
-		public String getNome() {
-			return nome;
-		}
-
-		public double getPreco() {
-			return preco;
-		}
-
-		public Date getDataServico() {
-			return Date.valueOf(dataServico);
-		}
-
-		public String getStatus() {
-			return status;
-		}
+	public String getStatus() {
+		return status;
+	}
 }

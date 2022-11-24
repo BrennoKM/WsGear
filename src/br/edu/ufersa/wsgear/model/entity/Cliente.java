@@ -7,7 +7,8 @@ import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 
 public class Cliente {
 
-	private Long idCliente;
+	private static int contIdCliente;
+	private int idCliente;
 
 	private String nome;
 	private String cpf;
@@ -73,8 +74,13 @@ public class Cliente {
 		}
 	}
 
-	public void setIdCliente(Long l) {
+	public void setIdCliente(int l) {
 		this.idCliente = l;
+	}
+	
+	public void gerarIdCliente() {
+		this.idCliente =+ contIdCliente;
+		contIdCliente++;
 	}
 
 	public void setVeiculo(Automovel automovel) {
@@ -107,7 +113,7 @@ public class Cliente {
 		return this.telefone;
 	}
 
-	public Long getIdCliente() {
+	public int getIdCliente() {
 		return this.idCliente;
 	}
 

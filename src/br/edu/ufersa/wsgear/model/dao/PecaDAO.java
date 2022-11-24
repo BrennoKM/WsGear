@@ -8,18 +8,20 @@ import br.edu.ufersa.wsgear.model.entity.Peca;
 
 public class PecaDAO extends BaseDAO<Peca>{
 	public boolean inserir(Peca p) {
-		String cmnd_ins = "INSERT INTO tb_peca (idPeca, Nome, Fabricante, Preco) VALUES (?,?,?,?);";
+		String cmnd_ins = "INSERT INTO tb_peca (idPeca, Nome, Fabricante, Preco, idPeca) VALUES (?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, p.getIdPeca());
+			pst.setInt(1, p.getIdPeca());
 			pst.setString(2, p.getNome());
 			pst.setString(3, p.getFab());
 			pst.setDouble(4, p.getPreco());
+			p.gerarIdPeca();
+			pst.setInt(5, p.getIdPeca());
 			pst.execute();
 					
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();
 		//	if(generatedKeys.next()) {
-		//		p.setIdPeca(generatedKeys.getLong("idPeca"));
+		//		p.setIdPeca(generatedKeys.getInt("idPeca"));
 		//	}
 			return true;
 		} catch (SQLException e) {
@@ -32,7 +34,7 @@ public class PecaDAO extends BaseDAO<Peca>{
 		String cmnd_ins = "DELETE FROM tb_peca WHERE idPeca=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, p.getIdPeca());
+			pst.setInt(1, p.getIdPeca());
 			pst.execute();
 			return true;		
 		
@@ -47,11 +49,11 @@ public class PecaDAO extends BaseDAO<Peca>{
 		String cmnd_ins = "UPDATE tb_peca SET idPeca=?, Nome=?, Fabricante=?, Preco=? WHERE idPeca=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, p.getIdPeca());
+			pst.setInt(1, p.getIdPeca());
 			pst.setString(2, p.getNome());
 			pst.setString(3, p.getFab());
 			pst.setDouble(4, p.getPreco());
-			pst.setLong(5, p.getIdPeca());
+			pst.setInt(5, p.getIdPeca());
 			pst.execute();
 			return true;		
 		
@@ -64,11 +66,11 @@ public class PecaDAO extends BaseDAO<Peca>{
 		String cmnd_ins = "SELECT * FROM tb_peca WHERE idPeca=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setLong(1, peca.getIdPeca());
+			pst.setInt(1, peca.getIdPeca());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				Peca p = new Peca();
-				p.setIdPeca(rs.getLong("idPeca"));
+				p.setIdPeca(rs.getInt("idPeca"));
 				p.setNome(rs.getString("Nome"));
 				p.setFab(rs.getString("Fabricante"));
 				p.setPreco(rs.getDouble("Preco"));
@@ -102,7 +104,7 @@ public class PecaDAO extends BaseDAO<Peca>{
 			switch(field)
 			{
 			case "idPeca":
-				pst.setLong(1, p.getIdPeca());
+				pst.setInt(1, p.getIdPeca());
 				break;
 			case "Nome":
 				pst.setString(1, p.getNome());
@@ -114,7 +116,7 @@ public class PecaDAO extends BaseDAO<Peca>{
 				pst.setDouble(1, p.getPreco());
 				break;
 			default:
-				pst.setLong(1, p.getIdPeca());
+				pst.setInt(1, p.getIdPeca());
 			}
 			
 			ResultSet rs = pst.executeQuery();

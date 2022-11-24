@@ -5,9 +5,9 @@ import br.edu.ufersa.wsgear.model.entity.Orcamento;
 
 public class AutomovelDTO {
 	// Atributos privados
-	private Long idAutomovel;
-	private Long idDono;
-	
+	private int idAutomovel;
+	private int idDono;
+
 	private Cliente dono;
 	private Orcamento orcamentoServico;
 	private String cpfDono;
@@ -17,9 +17,11 @@ public class AutomovelDTO {
 	private String placa;
 	private int ano;
 	private int anomax = 2050;
+
 	// Construtores
 	public AutomovelDTO() {
 	}
+
 	public AutomovelDTO(Cliente dono, String marca) {
 		setDono(dono);
 		setMarca(marca);
@@ -65,7 +67,7 @@ public class AutomovelDTO {
 			this.cor = "-";
 		}
 	}
-	
+
 	public void setCpfDono(String cpfDono) {
 		if (!cpfDono.isEmpty()) {
 			this.cpfDono = cpfDono;
@@ -89,28 +91,27 @@ public class AutomovelDTO {
 	}
 
 	public void setDono(Cliente dono) {
-		if(!(dono == null)) {
+		if (!(dono == null)) {
 			this.dono = dono;
 			idDono = dono.getIdCliente();
-		}
-		else 
-			this.dono = new Cliente("Juju");
+		} else
+			this.dono = new Cliente("Cliente sem nome");
 	}
-	
-	public void setIdDono(Long idDono) {
-		if(idDono >= 0) {
+
+	public void setIdDono(int idDono) {
+		if (idDono >= 0) {
 			this.idDono = idDono;
 		}
 	}
 
-	public void setIdAutomovel(Long idAutomovel) {
-		if(idAutomovel >=0) {
+	public void setIdAutomovel(int idAutomovel) {
+		if (idAutomovel >= 0) {
 			this.idAutomovel = idAutomovel;
 		}
 	}
-	
+
 	public void setOrcamentoServico(Orcamento orcamentoServico) {
-		if(orcamentoServico != null)
+		if (orcamentoServico != null)
 			this.orcamentoServico = orcamentoServico;
 		else
 			this.orcamentoServico = new Orcamento();
@@ -133,10 +134,6 @@ public class AutomovelDTO {
 	public String getPlaca() {
 		return this.placa;
 	}
-	
-	public String getCpfDono() {
-		return this.cpfDono;
-	}
 
 	public int getAno() {
 		return this.ano;
@@ -146,15 +143,20 @@ public class AutomovelDTO {
 		return this.dono;
 	}
 
-	public Long getIdDono() {
+	public int getIdDono() {
 		return this.idDono;
 	}
 
-	public Long getIdAutomovel() {
+	public int getIdAutomovel() {
 		return this.idAutomovel;
 	}
-	
+
 	public Orcamento getOrcamentoServico() {
 		return this.orcamentoServico;
 	}
+
+	public String getCpfDono() {
+		return cpfDono;
+	}
+
 }

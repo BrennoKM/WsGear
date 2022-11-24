@@ -7,7 +7,11 @@ import br.edu.ufersa.wsgear.api.dto.OrcamentoDTO;
 
 public class Orcamento {
 
-	private Long idOrcamento;
+	private static int contIdOrcamento;
+	private int idOrcamento;
+	private int idPeca;
+	private int idServico;
+	private int idAutomovel;
 	private List<Peca> pecas = new ArrayList<Peca>();
 	private List<Servico> servicos = new ArrayList<Servico>();
 	private double valor;
@@ -35,9 +39,29 @@ public class Orcamento {
 		}
 	}
 
-	public void setIdOrcamento(Long idOrc) {
+	public void setIdOrcamento(int idOrc) {
 		if (idOrc > 0)
 			this.idOrcamento = idOrc;
+	}
+
+	public void gerarIdOrcamento() {
+		this.idOrcamento = +contIdOrcamento;
+		contIdOrcamento++;
+	}
+
+	public void setIdPEca(int idPeca) {
+		if (idPeca > 0)
+			this.idPeca = idPeca;
+	}
+
+	public void setIdServico(int idServico) {
+		if (idServico > 0)
+			this.idServico = idServico;
+	}
+
+	public void setIdAutomovel(int idAutomovel) {
+		if (idAutomovel > 0)
+			this.idAutomovel = idAutomovel;
 	}
 
 	public void setValor(double valor) {
@@ -71,8 +95,20 @@ public class Orcamento {
 		}
 	}
 
-	public Long getIdOrcamento() {
+	public int getIdOrcamento() {
 		return this.idOrcamento;
+	}
+
+	public int getIdPeca() {
+		return this.idPeca;
+	}
+
+	public int getIdServico() {
+		return this.idServico;
+	}
+
+	public int getIdAutomovel() {
+		return this.idAutomovel;
 	}
 
 	public double getValor() {

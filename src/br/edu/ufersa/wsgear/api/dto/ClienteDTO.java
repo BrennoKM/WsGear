@@ -7,9 +7,7 @@ import br.edu.ufersa.wsgear.model.entity.Automovel;
 import br.edu.ufersa.wsgear.model.entity.Endereco;
 
 public class ClienteDTO {
-	
-
-	private Long idCliente;
+	private int idCliente;
 
 	private String nome;
 	private String cpf;
@@ -75,9 +73,10 @@ public class ClienteDTO {
 		}
 	}
 
-	public void setIdCliente(Long l) {
+	public void setIdCliente(int l) {
 		this.idCliente = l;
 	}
+	
 
 	public void setVeiculo(Automovel automovel) {
 		if (automovel != null) {
@@ -109,7 +108,7 @@ public class ClienteDTO {
 		return this.telefone;
 	}
 
-	public Long getIdCliente() {
+	public int getIdCliente() {
 		return this.idCliente;
 	}
 
