@@ -7,7 +7,6 @@ import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 
 public class Cliente {
 
-	private static int contIdCliente = 1;
 	private int idCliente;
 
 	private String nome;
@@ -47,10 +46,8 @@ public class Cliente {
 	}
 
 	public void setCpf(String cpf) {
-		if (!cpf.isEmpty() && (cpf.length() == 15)) {
+		if (!cpf.isEmpty()) {
 			this.cpf = cpf;
-		} else {
-			this.cpf = "-----------";
 		}
 	}
 
@@ -76,11 +73,6 @@ public class Cliente {
 
 	public void setIdCliente(int l) {
 		this.idCliente = l;
-	}
-	
-	public void gerarIdCliente() {
-		this.idCliente =+ contIdCliente;
-		contIdCliente++;
 	}
 
 	public void setVeiculo(Automovel automovel) {

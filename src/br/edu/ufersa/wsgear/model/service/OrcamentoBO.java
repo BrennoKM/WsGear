@@ -31,6 +31,20 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 			return false;
 		}
 	}
+	
+	public int buscarIdOrcamento(OrcamentoDTO OrcamentoDTO) {
+		Orcamento orcamento = Orcamento.converter(OrcamentoDTO);
+		ResultSet rs = dao.findBySpecifiedField(orcamento, "idOrcamento");
+		try {
+			if(rs!=null && rs.next()) {
+				return rs.getInt("idOrcamento");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
 
 	public boolean deletar(OrcamentoDTO orcamentoDTO) {
 		Orcamento orcamento = Orcamento.converter(orcamentoDTO);

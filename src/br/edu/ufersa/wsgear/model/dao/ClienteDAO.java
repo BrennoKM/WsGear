@@ -10,14 +10,12 @@ import br.edu.ufersa.wsgear.model.entity.Cliente;
 public class ClienteDAO extends BaseDAO<Cliente> {
 
 	public boolean inserir(Cliente cliente) {
-		String sql = "INSERT INTO tb_cliente  (CPF,Nome,Telefone,idCliente) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO tb_cliente  (CPF,Nome,Telefone) VALUES (?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, cliente.getCpf());
 			pst.setString(2, cliente.getNome());
 			pst.setString(3, cliente.getTelefone());
-			cliente.gerarIdCliente();
-			pst.setInt(4, cliente.getIdCliente());
 			pst.execute();
 			
 			return true;

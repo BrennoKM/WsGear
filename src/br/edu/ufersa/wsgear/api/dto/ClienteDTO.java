@@ -46,10 +46,8 @@ public class ClienteDTO {
 	}
 
 	public void setCpf(String cpf) {
-		if (!cpf.isEmpty() && (cpf.length() == 15)) {
+		if (!cpf.isEmpty()) {
 			this.cpf = cpf;
-		} else {
-			this.cpf = "-----------";
 		}
 	}
 

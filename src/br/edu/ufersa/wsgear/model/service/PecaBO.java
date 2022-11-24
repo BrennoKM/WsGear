@@ -29,6 +29,22 @@ public class PecaBO implements ServiceInterface<PecaDTO> {
 			return false;
 		}
 	}
+	
+	public int buscarIdPeca(PecaDTO PecaDTO) {
+		Peca peca = Peca.converter(PecaDTO);
+		ResultSet rs = dao.findBySpecifiedField(peca, "idPeca");
+		try {
+			if(rs!=null && rs.next()) {
+				//cliente.setIdCliente(rs.getInt("idCliente"));
+				//return cliente;
+				return rs.getInt("idPeca");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
 
 	public boolean deletar(PecaDTO pecaDTO) {
 		Peca peca = Peca.converter(pecaDTO);

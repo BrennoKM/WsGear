@@ -8,15 +8,13 @@ import br.edu.ufersa.wsgear.model.entity.Peca;
 
 public class PecaDAO extends BaseDAO<Peca>{
 	public boolean inserir(Peca p) {
-		String cmnd_ins = "INSERT INTO tb_peca (idPeca, Nome, Fabricante, Preco, idPeca) VALUES (?,?,?,?,?);";
+		String cmnd_ins = "INSERT INTO tb_peca (idPeca, Nome, Fabricante, Preco) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
 			pst.setInt(1, p.getIdPeca());
 			pst.setString(2, p.getNome());
 			pst.setString(3, p.getFab());
 			pst.setDouble(4, p.getPreco());
-			p.gerarIdPeca();
-			pst.setInt(5, p.getIdPeca());
 			pst.execute();
 					
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();

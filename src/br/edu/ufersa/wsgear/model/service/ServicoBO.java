@@ -30,6 +30,20 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 		}
 
 	}
+	
+	public int buscarIdServico(ServicoDTO ServicoDTO) {
+		Servico servico = Servico.converter(ServicoDTO);
+		ResultSet rs = dao.findBySpecifiedField(servico, "idServico");
+		try {
+			if(rs!=null && rs.next()) {
+				return rs.getInt("idServico");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
 
 	public List<ServicoDTO> listar() {
 		List<ServicoDTO> servicos = new ArrayList<ServicoDTO>();

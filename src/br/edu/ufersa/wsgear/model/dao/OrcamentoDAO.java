@@ -8,15 +8,13 @@ import br.edu.ufersa.wsgear.model.entity.Orcamento;
 
 public class OrcamentoDAO extends BaseDAO<Orcamento>{
 	public boolean inserir(Orcamento o) {
-		String cmnd_ins = "INSERT INTO tb_orcamento (orcIdPeca, orcIdServico, Valor, idOrcamento, orcIdAutomovel) VALUES (?,?,?,?,?);";
+		String cmnd_ins = "INSERT INTO tb_orcamento (orcIdPeca, orcIdServico, Valor, orcIdAutomovel) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
 			pst.setInt(1, o.getPecas().get(0).getIdPeca());
 			pst.setInt(2, o.getServicos().get(0).getIdServico());
 			pst.setDouble(3, o.getValor());
-			o.gerarIdOrcamento();
-			pst.setInt(4, o.getIdOrcamento());
-			pst.setInt(5, o.getIdAutomovel());
+			pst.setInt(4, o.getIdAutomovel());
 			pst.execute();
 			
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();

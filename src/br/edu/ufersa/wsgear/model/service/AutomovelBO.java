@@ -14,7 +14,7 @@ import br.edu.ufersa.wsgear.model.entity.Automovel;
 public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 	BaseInterDAO<Automovel> dao = new AutomovelDAO();
 	public boolean inserir(AutomovelDTO automovelDTO) {
-		Automovel automovel = Automovel.conveter(automovelDTO);
+		Automovel automovel = Automovel.converter(automovelDTO);
 		ResultSet rs = dao.findBySpecifiedField(automovel, "Placa");
 		try {
 			if(rs==null || !(rs.next()) ) {
@@ -50,8 +50,24 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		}
 	}
 	
+	public int buscarIdAutomovel(AutomovelDTO AutomovelDTO) {
+		Automovel automovel = Automovel.converter(AutomovelDTO);
+		ResultSet rs = dao.findBySpecifiedField(automovel, "Placa");
+		try {
+			if(rs!=null && rs.next()) {
+				//cliente.setIdCliente(rs.getInt("idCliente"));
+				//return cliente;
+				return rs.getInt("idAutomovel");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
+	
 	public boolean alterar(AutomovelDTO automovelDTO) {
-		Automovel automovel = Automovel.conveter(automovelDTO);
+		Automovel automovel = Automovel.converter(automovelDTO);
 		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
 		try {
 			if(rs!=null && rs.next() ) {
@@ -66,7 +82,7 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		}	
 	}
 	public boolean deletar(AutomovelDTO automovelDTO) {
-		Automovel automovel = Automovel.conveter(automovelDTO);
+		Automovel automovel = Automovel.converter(automovelDTO);
 		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
 		try {
 			if(rs!=null && rs.next() ) {

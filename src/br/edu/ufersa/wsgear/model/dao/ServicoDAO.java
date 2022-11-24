@@ -9,15 +9,13 @@ import br.edu.ufersa.wsgear.model.entity.Servico;
 public class ServicoDAO extends BaseDAO<Servico> {
 	
 	public boolean inserir(Servico servico) {
-		String sql = "INSERT INTO tb_servico  (idServico,Nome,Preco,dataServico,statusServico) VALUES (?,?,?,?,?);";
+		String sql = "INSERT INTO tb_servico  (Nome,Preco,dataServico,statusServico) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			servico.gerarIdServico();
-			pst.setInt(1, servico.getIdServico());
-			pst.setString(2, servico.getNome());
-			pst.setDouble(3, servico.getPreco());
-			pst.setDate(4, servico.getDataServico());
-			pst.setString(5, servico.getStatus());
+			pst.setString(1, servico.getNome());
+			pst.setDouble(2, servico.getPreco());
+			pst.setDate(3, servico.getDataServico());
+			pst.setString(4, servico.getStatus());
 			pst.execute();
 			
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();

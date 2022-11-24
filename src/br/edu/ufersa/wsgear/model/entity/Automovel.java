@@ -169,7 +169,7 @@ public class Automovel {
 		return cpfDono;
 	}
 
-	public static Automovel conveter(AutomovelDTO dto) {
+	public static Automovel converter(AutomovelDTO dto) {
 		Automovel a = new Automovel();
 		a.setCpfDono(dto.getCpfDono());
 		a.setAno(dto.getAno());

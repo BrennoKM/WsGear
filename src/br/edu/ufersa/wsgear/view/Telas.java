@@ -33,15 +33,14 @@ public class Telas extends Application{
 		//bo.deletar(c);
 		
 		ClienteDTO c = new ClienteDTO();
-		c.setCpf("111.222.333-44");
-		c.setNome("Galdino 3");
-		c.setTelefone("92299");
+		c.setCpf("221.223.333-01");
+		c.setNome("Galdino 2");
+		c.setTelefone("192299");
 		//c.setEndereco(Endereco.converter(e));
 		
 		ClienteBO cBO = new ClienteBO();
 		cBO.inserir(c);
 		//cBO.deletar(c);
-	
 		
 		AutomovelDTO a = new AutomovelDTO();
 		AutomovelBO aBO = new AutomovelBO();
@@ -50,9 +49,9 @@ public class Telas extends Application{
 		a.setCor("vermelho");
 		a.setCpfDono(c.getCpf());
 		a.setMarca("Tesla");
-		a.setModelo("modelo X");
-		a.setPlaca("LLLKJ27");
-		a.setIdDono(c.getIdCliente());
+		a.setModelo("modelo Y");
+		a.setPlaca("2111J29");
+		a.setIdDono(cBO.buscarIdCliente(c));
 
 		aBO.inserir(a);
 		
