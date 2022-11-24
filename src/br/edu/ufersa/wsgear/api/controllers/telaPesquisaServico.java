@@ -33,7 +33,7 @@ public class telaPesquisaServico {
 		StatusColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
 		NomeColumn.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		DataServicoColumn.setCellValueFactory(new PropertyValueFactory<>("Data Inicial"));
-		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preço"));
+		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("PreÃ§o"));
 		StatusColumn.setCellValueFactory(new PropertyValueFactory<>("Status"));
 		tabelaServico.setItems(listaDeServicos);
 		
