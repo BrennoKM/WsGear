@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaAtualizarServico">
+   <children>
+      <Label layoutX="197.0" layoutY="225.0" text="Data de Início:" />
+      <Label layoutX="219.0" layoutY="136.0" text="Nome:" />
+      <Label layoutX="218.0" layoutY="166.0" text="Preço:" />
+      <Label layoutX="217.0" layoutY="194.0" text="Status:" />
+      <TextField fx:id="pecaNome" layoutX="292.0" layoutY="132.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Troca de Pneu" />
+      <TextField fx:id="servicoPreco" layoutX="292.0" layoutY="162.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: R$ 200.00" />
+      <TextField fx:id="servicoStatus" layoutX="292.0" layoutY="190.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Completo" />
+      <Button fx:id="atualizarButton" layoutX="292.0" layoutY="382.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
+      <Button fx:id="cancelButton" layoutX="405.0" layoutY="382.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <DatePicker fx:id="servicoDataInicio" layoutX="292.0" layoutY="221.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 01/01/2008" />
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wsgearLogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#telaPrincipal" text="Home" />
+      <Label layoutX="241.0" layoutY="48.0" text="Atualização Serviço">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="excluirButton" layoutX="347.0" layoutY="382.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+   </children>
+</Pane>
