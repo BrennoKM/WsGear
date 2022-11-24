@@ -23,7 +23,7 @@
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#telaPrincipal" text="Home" />
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="192.0" layoutY="48.0" text="Atualização Orçamento">
          <font>
             <Font size="30.0" />

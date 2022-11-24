@@ -29,7 +29,7 @@
       <TextField fx:id="automovelAno" layoutX="289.0" layoutY="271.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 1970" />
       <Button fx:id="cadastrarButton" layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
       <Button fx:id="cancelButton" layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#telaPrincipal" text="Home" />
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="194.0" layoutY="48.0" text="Cadastro de Automóvel">
          <font>
             <Font size="30.0" />
