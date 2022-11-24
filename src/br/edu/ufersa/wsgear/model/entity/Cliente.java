@@ -46,7 +46,7 @@ public class Cliente {
 	}
 
 	public void setCpf(String cpf) {
-		if (!cpf.isEmpty() && (cpf.length() == 11)) {
+		if (!cpf.isEmpty() && (cpf.length() == 15)) {
 			this.cpf = cpf;
 		} else {
 			this.cpf = "-----------";

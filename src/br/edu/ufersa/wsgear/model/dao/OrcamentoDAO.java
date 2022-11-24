@@ -16,10 +16,10 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 			pst.setDouble(3, o.getValor());
 			pst.execute();
 			
-			ResultSet generatedKeys = pst.getGeneratedKeys();
-			if(generatedKeys.next()) {
-				o.setIdOrcamento(generatedKeys.getLong("idOrcamento"));
-			}
+		//	ResultSet generatedKeys = pst.getGeneratedKeys();
+		//	if(generatedKeys.next()) {
+		//		o.setIdOrcamento(generatedKeys.getLong("idOrcamento"));
+		//	}
 			return true;		
 		
 		} catch (SQLException e) {

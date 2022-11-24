@@ -17,10 +17,10 @@ public class PecaDAO extends BaseDAO<Peca>{
 			pst.setDouble(4, p.getPreco());
 			pst.execute();
 					
-			ResultSet generatedKeys = pst.getGeneratedKeys();
-			if(generatedKeys.next()) {
-				p.setIdPeca(generatedKeys.getLong("idPeca"));
-			}
+		//	ResultSet generatedKeys = pst.getGeneratedKeys();
+		//	if(generatedKeys.next()) {
+		//		p.setIdPeca(generatedKeys.getLong("idPeca"));
+		//	}
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

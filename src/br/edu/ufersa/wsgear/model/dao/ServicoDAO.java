@@ -19,10 +19,10 @@ public class ServicoDAO extends BaseDAO<Servico> {
 			pst.setString(5, servico.getStatus());
 			pst.execute();
 			
-			ResultSet generatedKeys = pst.getGeneratedKeys();
-			if(generatedKeys.next()) {
-				servico.setIdServico(generatedKeys.getLong("idServico"));
-			}
+		//	ResultSet generatedKeys = pst.getGeneratedKeys();
+		//	if(generatedKeys.next()) {
+		//		servico.setIdServico(generatedKeys.getLong("idServico"));
+		//	}
 			
 			return true;
 

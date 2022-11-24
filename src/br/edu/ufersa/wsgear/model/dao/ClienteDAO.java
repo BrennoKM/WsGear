@@ -18,10 +18,10 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 			pst.setString(3, cliente.getTelefone());
 			pst.execute();
 			
-			ResultSet generatedKeys = pst.getGeneratedKeys();
-			if(generatedKeys.next()) {
-				cliente.setIdCliente(generatedKeys.getLong("idCliente"));
-			}
+		//	ResultSet generatedKeys = pst.getGeneratedKeys();
+		//	if(generatedKeys.next()) {
+		//		cliente.setIdCliente(generatedKeys.getLong("idCliente"));
+		//	}
 			
 			return true;
 			
@@ -86,6 +86,28 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 			return null;
 		}
 	}
+	
+	public Cliente findByNome(Cliente e) {
+		String sql = "SELECT * FROM tb_cliente WHERE Nome=? ;";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			pst.setString(1, e.getNome());
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				Cliente c = new Cliente();
+				c.setCpf(rs.getString("CPF"));
+				c.setNome(rs.getString("Nome"));
+				c.setTelefone(rs.getString("telefone"));
+				c.setIdCliente(rs.getLong("idCliente"));
+				return c;
+			} else
+				return null;
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 
 	public ResultSet findAll() {
 		String sql = "SELECT * FROM tb_cliente;";
@@ -106,20 +128,18 @@ public class ClienteDAO extends BaseDAO<Cliente> {
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			switch (field) {
-			case "cpf":
+			case "CPF":
 				pst.setString(1, e.getCpf());
 				break;
 
-			case "nome":
+			case "Nome":
 				pst.setString(1, e.getNome());
 				break;
 
-			case "telefone":
+			case "Telefone":
 				pst.setString(1, e.getTelefone());
 				break;
 
-			default:
-				pst.setLong(1, e.getIdCliente());
 			}
 
 			ResultSet rs = pst.executeQuery();

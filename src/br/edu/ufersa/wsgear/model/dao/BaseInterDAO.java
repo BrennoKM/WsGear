@@ -11,4 +11,5 @@ public interface BaseInterDAO<Entity> {
 	public Entity findById(Entity e);
 	public ResultSet findAll();
 	public ResultSet findBySpecifiedField(Entity e, String field);
+	public Entity findByNome(Entity e);
 }

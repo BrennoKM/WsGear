@@ -11,7 +11,7 @@ public class BaseDAO<Entity> implements BaseInterDAO<Entity> {
 	synchronized public Connection getConnection() {
 		if (con == null) {
 			try {
-				con = DriverManager.getConnection("jdbc:mysql://localhost/WSGear", "admin", "admin");
+				con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/wsgear_db", "root", "admin");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -41,6 +41,12 @@ public class BaseDAO<Entity> implements BaseInterDAO<Entity> {
 	}
 
 	public ResultSet findBySpecifiedField(Entity e, String field) {
+		return null;
+	}
+
+	@Override
+	public Entity findByNome(Entity e) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

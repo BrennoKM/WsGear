@@ -165,12 +165,12 @@ public class Automovel {
 		a.setAno(dto.getAno());
 		a.setCor(dto.getCor());
 		a.setDono(dto.getDono());
-		a.setIdDono(dto.getIdDono());
+		//a.setIdDono(dto.getIdDono());
 		a.setMarca(dto.getMarca());
 		a.setModelo(dto.getModelo());
 		a.setOrcamentoServico(dto.getOrcamentoServico());
 		a.setPlaca(dto.getPlaca());
-		a.setIdAutomovel(dto.getIdAutomovel());
+		//a.setIdAutomovel(dto.getIdAutomovel());
 		return a;
 	}
 

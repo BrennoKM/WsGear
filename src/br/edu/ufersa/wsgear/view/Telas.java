@@ -1,5 +1,12 @@
 package br.edu.ufersa.wsgear.view;
 
+import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
+import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
+import br.edu.ufersa.wsgear.api.dto.EnderecoDTO;
+import br.edu.ufersa.wsgear.model.entity.Endereco;
+import br.edu.ufersa.wsgear.model.service.AutomovelBO;
+import br.edu.ufersa.wsgear.model.service.ClienteBO;
+import br.edu.ufersa.wsgear.model.service.EnderecoBO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +16,47 @@ import javafx.stage.Stage;
 public class Telas extends Application{
 	private static Stage stage;
 	public static void main (String args[]) {
-		launch();
+		
+		EnderecoDTO e = new EnderecoDTO();
+		e.setBairro("bairro x");
+		e.setCep("2222222");
+		e.setComplemento("wd");
+		e.setCpf_morador("242");
+		EnderecoBO bo = new EnderecoBO();
+		bo.inserir(e);
+		
+		e.setCep("33333");
+		
+		//bo.alterar(c);
+		
+		//bo.deletar(c);
+		
+		ClienteDTO c = new ClienteDTO();
+		c.setCpf("00023133299");
+		c.setNome("Lucas");
+		c.setTelefone("92299");
+		//c.setEndereco(Endereco.converter(e));
+		
+		ClienteBO cBO = new ClienteBO();
+		
+		cBO.inserir(c);
+		//cBO.deletar(c);
+		cBO.buscarId(c);
+		
+		AutomovelDTO a = new AutomovelDTO();
+		AutomovelBO aBO = new AutomovelBO();
+		
+		a.setAno(2010);
+		a.setCor("vermelho");
+		a.setCpfDono("999.888.777-66");
+		a.setMarca("Tesla");
+		a.setModelo("modelo 2");
+		a.setPlaca("ABC7J23");
+		a.setIdDono(c.getIdCliente());
+
+		aBO.inserir(a);
+		
+		//launch();
 	}
 	private void setStage(Stage st) {
 		stage =st;

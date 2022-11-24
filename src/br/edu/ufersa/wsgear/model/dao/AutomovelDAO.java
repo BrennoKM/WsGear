@@ -20,10 +20,6 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			//
 			pst.execute();
 			
-			ResultSet generatedKeys = pst.getGeneratedKeys();
-			if(generatedKeys.next()) {
-				automovel.setIdAutomovel(generatedKeys.getLong("idAutomovel"));
-			}
 			
 			return true;
 
