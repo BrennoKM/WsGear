@@ -17,7 +17,20 @@ public class Telas extends Application{
 	public void start(Stage arg0) throws Exception {
 		setStage(arg0);
 		arg0.setTitle("Teste");
-		telaPesquisa();
+		telaPrincipal();
+	}
+	
+	public static void telaPrincipal() {																
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/mainScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Main");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}																									
 	}
 	
 	public static void telaPesquisa() {																

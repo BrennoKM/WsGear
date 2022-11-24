@@ -23,8 +23,6 @@ public class telaPesquisaAutomovel {
 	@FXML private TableColumn<AutomovelDTO, String> PlacaColumn;
 	@FXML private TableColumn<AutomovelDTO, String> AnoColumn;
 	
-	
-	
 	private AutomovelBO bo = new AutomovelBO();
     private ObservableList<AutomovelDTO> listaDeAutomoveis;
     

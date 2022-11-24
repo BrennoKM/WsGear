@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaCadastroCliente">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaAtualizarCliente">
    <children>
       <Label layoutX="218.0" layoutY="126.0" text="* CPF:" />
       <Label layoutX="217.0" layoutY="155.0" text="Nome:" />
@@ -26,18 +26,19 @@
       <TextField fx:id="enderecoComplemento" layoutX="289.0" layoutY="331.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Perto da Budega de Seu Joaquim" />
       <Label layoutX="211.0" layoutY="303.0" text="Número:" />
       <TextField fx:id="enderecoNumero" layoutX="289.0" layoutY="299.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 777" />
-      <Button fx:id="cadastrarButton" layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button fx:id="cancelButton" layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
       <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
-      <Label layoutX="220.0" layoutY="48.0" text="Cadastro de Cliente">
+      <Label layoutX="231.0" layoutY="48.0" text="Atualização Cliente">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <Button fx:id="atualizarButton" layoutX="302.0" layoutY="392.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
+      <Button fx:id="cancelButton" layoutX="415.0" layoutY="392.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <Button fx:id="excluirButton" layoutX="357.0" layoutY="392.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
    </children>
 </Pane>
