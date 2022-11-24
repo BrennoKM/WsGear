@@ -1,19 +1,16 @@
 package br.edu.ufersa.wsgear.model.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import br.edu.ufersa.wsgear.api.dto.OrcamentoDTO;
 
 public class Orcamento {
 
-	private static int contIdOrcamento;
 	private int idOrcamento;
 	private int idPeca;
 	private int idServico;
 	private int idAutomovel;
-	private List<Peca> pecas = new ArrayList<Peca>();
-	private List<Servico> servicos = new ArrayList<Servico>();
+	private Peca peca;
+	private Servico servico;
 	private double valor;
 
 	public Orcamento() {
@@ -27,8 +24,8 @@ public class Orcamento {
 
 	private void inserirPecaServicoValor(Peca peca, Servico servico, double valor) {
 		if ((peca != null) && (servico != null) && (valor > 0.0)) {
-			pecas.add(peca);
-			servicos.add(servico);
+			this.peca = peca;
+			this.servico = servico;
 			somarValor(valor);
 		}
 	}
@@ -44,12 +41,7 @@ public class Orcamento {
 			this.idOrcamento = idOrc;
 	}
 
-	public void gerarIdOrcamento() {
-		this.idOrcamento = +contIdOrcamento;
-		contIdOrcamento++;
-	}
-
-	public void setIdPEca(int idPeca) {
+	public void setIdPeca(int idPeca) {
 		if (idPeca > 0)
 			this.idPeca = idPeca;
 	}
@@ -73,25 +65,13 @@ public class Orcamento {
 
 	public void setPeca(Peca peca) {
 		if (peca != null) {
-			pecas.add(peca);
-		}
-	}
-
-	public void setPecas(List<Peca> pecas) {
-		if (pecas != null) {
-			this.pecas = pecas;
+			this.peca = peca;
 		}
 	}
 
 	public void setServico(Servico servico) {
 		if (servico != null) {
-			servicos.add(servico);
-		}
-	}
-
-	public void setServicos(ArrayList<Servico> servicos) {
-		if (servicos != null) {
-			this.servicos = servicos;
+			this.servico = servico;
 		}
 	}
 
@@ -115,17 +95,17 @@ public class Orcamento {
 		return this.valor;
 	}
 
-	public List<Peca> getPecas() {
-		return this.pecas;
+	public Peca getPeca() {
+		return this.peca;
 	}
 
-	public List<Servico> getServicos() {
-		return this.servicos;
+	public Servico getServico() {
+		return this.servico;
 	}
 
 	public static Orcamento converter(OrcamentoDTO orcamentoDTO) {
 		Orcamento orcamento = new Orcamento();
-		orcamento.inserirPecaServicoValor(orcamentoDTO.getPecas().get(0), orcamentoDTO.getServicos().get(0),
+		orcamento.inserirPecaServicoValor(orcamentoDTO.getPeca(), orcamentoDTO.getServico(),
 				orcamentoDTO.getValor());
 		orcamento.setIdOrcamento(orcamentoDTO.getIdOrcamento());
 		return orcamento;

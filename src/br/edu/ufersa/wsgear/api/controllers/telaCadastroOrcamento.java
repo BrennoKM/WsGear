@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 public class telaCadastroOrcamento {
 	@FXML private TextField orcamentoIdPeca;
 	@FXML private TextField orcamentoIdServico;
-	@FXML private TextField orcamentoPlaca;
+	@FXML private TextField orcamentoIdAutomovel;
 	@FXML private TextField orcamentoPreco;
 	@FXML private Button cadastrarButton;
 	@FXML private Button cancelButton;
@@ -20,6 +20,9 @@ public class telaCadastroOrcamento {
 		public void cadastrar() {
 			OrcamentoDTO dto = new OrcamentoDTO();
 			dto.setValor(Integer.parseInt(orcamentoPreco.toString()));
+			dto.setIdServico(Integer.parseInt(orcamentoIdServico.toString()));
+			dto.setIdPeca(Integer.parseInt(orcamentoIdPeca.toString()));
+			dto.setIdAutomovel(Integer.parseInt(orcamentoIdAutomovel.toString()));
 			bo.inserir(dto);
 			Telas.telaPesquisaAutomovel();
 		}

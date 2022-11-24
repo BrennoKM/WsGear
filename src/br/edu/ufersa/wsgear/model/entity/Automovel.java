@@ -5,7 +5,6 @@ import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 public class Automovel {
 	// Atributos privados
 
-	private static int contIdAutomovel = 1;
 	private int idAutomovel;
 	private int idDono;
 
@@ -21,24 +20,20 @@ public class Automovel {
 
 	// Construtores
 	public Automovel() {
-		idAutomovel = contIdAutomovel;
 	}
 
 	public Automovel(Cliente dono, String marca) {
-		idAutomovel = contIdAutomovel;
 		setDono(dono);
 		setMarca(marca);
 	}
 
 	public Automovel(Cliente dono, String marca, String modelo) {
-		idAutomovel = contIdAutomovel;
 		setDono(dono);
 		setMarca(marca);
 		setModelo(modelo);
 	}
 
 	public Automovel(Cliente dono, String marca, String modelo, String cor, String placa, int ano) {
-		idAutomovel = contIdAutomovel;
 		setDono(dono);
 		setMarca(marca);
 		setModelo(modelo);
@@ -113,11 +108,6 @@ public class Automovel {
 		if (idAutomovel >= 0) {
 			this.idAutomovel = idAutomovel;
 		}
-	}
-	
-	public void gerarIdAutomovel() {
-		this.idAutomovel += contIdAutomovel;
-		contIdAutomovel++;
 	}
 
 	public void setOrcamentoServico(Orcamento orcamentoServico) {

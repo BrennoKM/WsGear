@@ -1,18 +1,16 @@
 package br.edu.ufersa.wsgear.api.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.edu.ufersa.wsgear.model.entity.Peca;
 import br.edu.ufersa.wsgear.model.entity.Servico;
 
 public class OrcamentoDTO {
+
 	private int idOrcamento;
 	private int idPeca;
 	private int idServico;
 	private int idAutomovel;
-	private List<Peca> pecas = new ArrayList<Peca>();
-	private List<Servico> servicos = new ArrayList<Servico>();
+	private Peca peca;
+	private Servico servico;
 	private double valor;
 
 	public OrcamentoDTO() {
@@ -26,8 +24,8 @@ public class OrcamentoDTO {
 
 	private void inserirPecaServicoValor(Peca peca, Servico servico, double valor) {
 		if ((peca != null) && (servico != null) && (valor > 0.0)) {
-			pecas.add(peca);
-			servicos.add(servico);
+			this.peca = peca;
+			this.servico = servico;
 			somarValor(valor);
 		}
 	}
@@ -42,17 +40,17 @@ public class OrcamentoDTO {
 		if (idOrc > 0)
 			this.idOrcamento = idOrc;
 	}
-	
-	public void setIdPEca(int idPeca) {
+
+	public void setIdPeca(int idPeca) {
 		if (idPeca > 0)
 			this.idPeca = idPeca;
 	}
-	
+
 	public void setIdServico(int idServico) {
 		if (idServico > 0)
 			this.idServico = idServico;
 	}
-	
+
 	public void setIdAutomovel(int idAutomovel) {
 		if (idAutomovel > 0)
 			this.idAutomovel = idAutomovel;
@@ -67,25 +65,13 @@ public class OrcamentoDTO {
 
 	public void setPeca(Peca peca) {
 		if (peca != null) {
-			pecas.add(peca);
-		}
-	}
-
-	public void setPecas(List<Peca> pecas) {
-		if (pecas != null) {
-			this.pecas = pecas;
+			this.peca = peca;
 		}
 	}
 
 	public void setServico(Servico servico) {
 		if (servico != null) {
-			servicos.add(servico);
-		}
-	}
-
-	public void setServicos(ArrayList<Servico> servicos) {
-		if (servicos != null) {
-			this.servicos = servicos;
+			this.servico = servico;
 		}
 	}
 
@@ -93,28 +79,28 @@ public class OrcamentoDTO {
 		return this.idOrcamento;
 	}
 
-	
 	public int getIdPeca() {
 		return this.idPeca;
 	}
-	
+
 	public int getIdServico() {
 		return this.idServico;
 	}
-	
+
 	public int getIdAutomovel() {
 		return this.idAutomovel;
 	}
-	
+
 	public double getValor() {
 		return this.valor;
 	}
 
-	public List<Peca> getPecas() {
-		return this.pecas;
+	public Peca getPeca() {
+		return this.peca;
 	}
 
-	public List<Servico> getServicos() {
-		return this.servicos;
+	public Servico getServico() {
+		return this.servico;
 	}
+
 }

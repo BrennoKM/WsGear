@@ -10,13 +10,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaAtualizarOrcamento">
    <children>
-      <Label layoutX="180.0" layoutY="194.0" text="Placa do Automóvel:" />
+      <Label layoutX="189.0" layoutY="194.0" text="ID do Automóvel" />
       <Label layoutX="207.0" layoutY="136.0" text="ID da Peça:" />
       <Label layoutX="201.0" layoutY="166.0" text="ID do Serviço" />
       <Label layoutX="218.0" layoutY="225.0" text="Preço:" />
       <TextField fx:id="orcamentoIdPeca" layoutX="292.0" layoutY="132.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 69" />
       <TextField fx:id="orcamentoIdServico" layoutX="292.0" layoutY="162.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 003" />
-      <TextField fx:id="orcamentoPlaca" layoutX="292.0" layoutY="190.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: AAAAAAAA" />
+      <TextField fx:id="orcamentoIdAutomovel" layoutX="292.0" layoutY="190.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 13" />
       <TextField fx:id="orcamentoPreco" layoutX="292.0" layoutY="221.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: R$ 300.00" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -3,12 +3,20 @@ package br.edu.ufersa.wsgear.view;
 import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 import br.edu.ufersa.wsgear.api.dto.EnderecoDTO;
+import br.edu.ufersa.wsgear.api.dto.OrcamentoDTO;
+import br.edu.ufersa.wsgear.api.dto.PecaDTO;
+import br.edu.ufersa.wsgear.api.dto.ServicoDTO;
 import br.edu.ufersa.wsgear.model.dao.ClienteDAO;
 import br.edu.ufersa.wsgear.model.entity.Cliente;
 import br.edu.ufersa.wsgear.model.entity.Endereco;
+import br.edu.ufersa.wsgear.model.entity.Peca;
+import br.edu.ufersa.wsgear.model.entity.Servico;
 import br.edu.ufersa.wsgear.model.service.AutomovelBO;
 import br.edu.ufersa.wsgear.model.service.ClienteBO;
 import br.edu.ufersa.wsgear.model.service.EnderecoBO;
+import br.edu.ufersa.wsgear.model.service.OrcamentoBO;
+import br.edu.ufersa.wsgear.model.service.PecaBO;
+import br.edu.ufersa.wsgear.model.service.ServicoBO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +26,7 @@ import javafx.stage.Stage;
 public class Telas extends Application{
 	private static Stage stage;
 	public static void main (String args[]) {
-		
+		/*
 		EnderecoDTO e = new EnderecoDTO();
 		e.setBairro("bairrwo j");
 		e.setCep("222322");
@@ -33,8 +41,8 @@ public class Telas extends Application{
 		//bo.deletar(c);
 		
 		ClienteDTO c = new ClienteDTO();
-		c.setCpf("221.223.333-01");
-		c.setNome("Galdino 2");
+		c.setCpf("221.263.333-01");
+		c.setNome("Galdino 3");
 		c.setTelefone("192299");
 		//c.setEndereco(Endereco.converter(e));
 		
@@ -49,12 +57,46 @@ public class Telas extends Application{
 		a.setCor("vermelho");
 		a.setCpfDono(c.getCpf());
 		a.setMarca("Tesla");
-		a.setModelo("modelo Y");
-		a.setPlaca("2111J29");
+		a.setModelo("modelo 8");
+		a.setPlaca("2121J11");
 		a.setIdDono(cBO.buscarIdCliente(c));
 
 		aBO.inserir(a);
 		
+		PecaDTO peDTO = new PecaDTO();
+		//PecaBO peBO = new PecaBO();
+		
+		peDTO.setFab("valve");
+		peDTO.setNome("Motor");
+		peDTO.setPreco(10.0);
+		
+		//peBO.inserir(peDTO);
+		
+		
+		ServicoDTO seDTO = new ServicoDTO();
+		//ServicoBO seBO = new ServicoBO();
+		
+		seDTO.setNome("Trocar motor");
+		seDTO.setPreco(5.0);
+		seDTO.setStatus("Em espera");
+		seDTO.setDataInicialServico();
+		//seBO.inserir(seDTO);
+		
+		
+		OrcamentoDTO orDTO = new OrcamentoDTO();
+		OrcamentoBO orBO = new OrcamentoBO();
+		
+		orDTO.setIdAutomovel(10);
+		//orDTO.setIdAutomovel(aBO.buscarIdAutomovel(a));
+		orDTO.setIdPeca(10);
+		//orDTO.setIdPeca(peBO.buscarIdPeca(peDTO));
+		orDTO.setIdServico(10);
+		//orDTO.setIdServico(seBO.buscarIdServico(seDTO));
+		orDTO.setPeca(Peca.converter(peDTO));
+		orDTO.setServico(Servico.converter(seDTO));
+		
+		orBO.inserir(orDTO);
+		*/
 		//launch();
 	}
 	private void setStage(Stage st) {

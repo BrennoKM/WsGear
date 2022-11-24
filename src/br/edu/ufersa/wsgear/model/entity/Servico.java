@@ -8,7 +8,7 @@ import br.edu.ufersa.wsgear.api.dto.ServicoDTO;
 
 public class Servico {
 	// Garantia de integridade ---------------------------------------------------
-	private static int contIdServico;
+	
 	private int idServico;
 	private String nome;
 	private double preco;
@@ -54,10 +54,6 @@ public class Servico {
 		this.idServico = l;
 	}
 	
-	public void gerarIdServico() {
-		this.idServico =+ contIdServico;
-		contIdServico++;
-	}
 
 	public void setNome(String nome) {
 
@@ -113,6 +109,7 @@ public class Servico {
 		s.setStatus(dto.getStatus());
 		s.setPreco(dto.getPreco());
 		s.setIdServico(dto.getIdServico());
+		s.setDataServico(dto.getDataServico().toString());
 		return s;
 	}
 }

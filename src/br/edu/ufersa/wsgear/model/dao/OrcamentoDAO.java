@@ -11,8 +11,8 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 		String cmnd_ins = "INSERT INTO tb_orcamento (orcIdPeca, orcIdServico, Valor, orcIdAutomovel) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setInt(1, o.getPecas().get(0).getIdPeca());
-			pst.setInt(2, o.getServicos().get(0).getIdServico());
+			pst.setInt(1, o.getIdPeca());
+			pst.setInt(2, o.getIdServico());
 			pst.setDouble(3, o.getValor());
 			pst.setInt(4, o.getIdAutomovel());
 			pst.execute();
@@ -48,8 +48,8 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 		String cmnd_ins = "UPDATE tb_orcamento SET orcIdPeca=? , orcIdServico=? , Valor=? WHERE idOrcamento=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(cmnd_ins);
-			pst.setInt(1, o.getPecas().get(0).getIdPeca());
-			pst.setInt(2, o.getServicos().get(0).getIdServico());
+			pst.setInt(1, o.getIdPeca());
+			pst.setInt(2, o.getIdServico());
 			pst.setDouble(3, o.getValor());
 			pst.setInt(4, o.getIdOrcamento());
 			pst.execute();
@@ -69,8 +69,8 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 			if(rs.next()) {
 				Orcamento o = new Orcamento();
 				o.setIdOrcamento(rs.getInt("idOrcamento"));
-				o.getPecas().get(0).setIdPeca(rs.getInt("orcIdPeca"));
-				o.getServicos().get(0).setIdServico(rs.getInt("orcIdServico"));
+				o.setIdPeca(rs.getInt("orcIdPeca"));
+				o.setIdServico(rs.getInt("orcIdServico"));
 				o.setValor(rs.getDouble("Valor"));
 				return o;
 			}
@@ -104,10 +104,10 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 				pst.setInt(1, o.getIdOrcamento());
 				break;
 			case "orcIdPeca":
-				pst.setInt(1, o.getPecas().get(0).getIdPeca());
+				pst.setInt(1, o.getIdPeca());
 				break;
 			case "orcIdServico":
-				pst.setInt(1, o.getServicos().get(0).getIdServico());
+				pst.setInt(1, o.getIdServico());
 				break;
 			case "Valor":
 				pst.setDouble(1, o.getValor());

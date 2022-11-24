@@ -122,7 +122,7 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 				break;
 
 			default:
-				pst.setLong(1, e.getIdAutomovel());
+				pst.setInt(1, e.getIdAutomovel());
 			}
 
 			ResultSet rs = pst.executeQuery();
@@ -138,7 +138,7 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 		String sql = "SELECT * FROM tb_automovel WHERE idAutomovel = ?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setLong(1, automovel.getIdAutomovel());
+			pst.setInt(1, automovel.getIdAutomovel());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				return automovel;

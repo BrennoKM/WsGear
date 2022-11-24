@@ -36,5 +36,6 @@ public class telaCadastroCliente {
 			dtoE.setComplemento(enderecoComplemento.toString());
 			dtoE.setCpf_morador(dtoC.getCpf());
 			boE.inserir(dtoE);
+		
 		}
 }

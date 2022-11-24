@@ -13,6 +13,7 @@ import br.edu.ufersa.wsgear.model.entity.Automovel;
 
 public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 	BaseInterDAO<Automovel> dao = new AutomovelDAO();
+	
 	public boolean inserir(AutomovelDTO automovelDTO) {
 		Automovel automovel = Automovel.converter(automovelDTO);
 		ResultSet rs = dao.findBySpecifiedField(automovel, "Placa");
