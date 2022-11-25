@@ -47,6 +47,23 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 		}
 		return 0;
 	}
+	
+	public int buscarIdClienteAutomovel(ClienteDTO clienteDTO) {
+		Cliente cliente = Cliente.converterId(clienteDTO);
+		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
+		try {
+			if(rs!=null && rs.next()) {
+				//cliente.setIdCliente(rs.getInt("idCliente"));
+				//return cliente;
+				System.out.println("achou");
+				return rs.getInt("idCliente");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
 
 	public Cliente buscarCliente(ClienteDTO clienteDTO) {
 		Cliente cliente = Cliente.converter(clienteDTO);

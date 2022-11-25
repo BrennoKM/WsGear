@@ -20,17 +20,22 @@ public class telaCadastroAutomovel {
 	@FXML private Button cancelButton;
 	@FXML private Button homeButton;
 		private AutomovelBO bo = new AutomovelBO();
+		private ClienteBO cBO = new ClienteBO();
+		
 		public void cadastrar() {
 			AutomovelDTO dto = new AutomovelDTO();
-			dto.setCpfDono(automovelDonoCpf.toString());
-			dto.setMarca(automovelMarca.toString());
-			dto.setModelo(automovelModelo.toString());
-			dto.setCor(automovelCor.toString());
-			dto.setPlaca(automovelPlaca.toString());
-			//dto.setAno(Integer.parseInt(automovelAno.toString()));
-			dto.setAno(2020);
+			ClienteDTO cDTO = new ClienteDTO();
+			dto.setCpfDono(automovelDonoCpf.getText());
+			dto.setMarca(automovelMarca.getText());
+			dto.setModelo(automovelModelo.getText());
+			dto.setCor(automovelCor.getText());
+			dto.setPlaca(automovelPlaca.getText());
+			dto.setAno(Integer.parseInt(automovelAno.getText()));
+			cDTO.setCpf(dto.getCpfDono());
+			dto.setIdDono(cBO.buscarIdClienteAutomovel(cDTO));
+			
 			bo.inserir(dto);
-			Telas.telaPesquisaAutomovel();
+			//Telas.telaPesquisaAutomovel();
 		}
 		
 		public void chamarTelaPrincipal() {

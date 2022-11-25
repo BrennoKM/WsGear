@@ -105,7 +105,9 @@ public class Telas extends Application{
 	public void start(Stage arg0) throws Exception {
 		setStage(arg0);
 		arg0.setTitle("Teste");
-		telaCadastroAutomovel();
+		//telaCadastroAutomovel();
+		//telaCadastroCliente();
+		telaPrincipal();
 	}
 	
 	public static void telaPrincipal() {																
@@ -223,5 +225,18 @@ public class Telas extends Application{
 		catch(Exception e) {																				
 			e.printStackTrace();																			
 		}																									
+	}
+	public static void telaCadastroOrcamento() {
+		try {																								
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroOrcamentoScreen.fxml"));			
+			Scene scene = new Scene (root);																	
+			stage.setScene(scene);																			
+			stage.setTitle("Cadastro de Peça");													
+			stage.show();
+		}																									
+		catch(Exception e) {																				
+			e.printStackTrace();																			
+		}	
+		
 	}
 }

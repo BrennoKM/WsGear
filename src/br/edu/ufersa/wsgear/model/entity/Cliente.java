@@ -118,4 +118,11 @@ public class Cliente {
 		c.setIdCliente(dto.getIdCliente());
 		return c;
 	}
+	
+	public static Cliente converterId(ClienteDTO dto) {
+		Cliente c = new Cliente();
+		c.setCpf(dto.getCpf());
+		c.setIdCliente(dto.getIdCliente());
+		return c;
+	}
 }

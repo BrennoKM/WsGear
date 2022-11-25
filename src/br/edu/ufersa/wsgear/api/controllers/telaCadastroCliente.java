@@ -6,6 +6,7 @@ import br.edu.ufersa.wsgear.model.service.ClienteBO;
 import br.edu.ufersa.wsgear.model.service.EnderecoBO;
 import br.edu.ufersa.wsgear.view.Telas;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class telaCadastroCliente {
@@ -17,25 +18,35 @@ public class telaCadastroCliente {
 	@FXML private TextField enderecoBairro;
 	@FXML private TextField enderecoNumero;
 	@FXML private TextField enderecoComplemento;
+	@FXML private Button cadastrarButton;
+	@FXML private Button cancelButton;
+	@FXML private Button homeButton;
 	
 		private ClienteBO boC = new ClienteBO();
 		private EnderecoBO boE = new EnderecoBO();
 		
 		public void cadastrar() {
 			ClienteDTO dtoC = new ClienteDTO();
-			dtoC.setCpf(clienteCpf.toString());
-			dtoC.setNome(clienteNome.toString());
-			dtoC.setTelefone(clienteTelefone.toString());
+			dtoC.setCpf(clienteCpf.getText());
+			dtoC.setNome(clienteNome.getText());
+			dtoC.setTelefone(clienteTelefone.getText());
 			boC.inserir(dtoC);
 			
 			EnderecoDTO dtoE = new EnderecoDTO();
-			dtoE.setCep(enderecoCep.toString());
-			dtoE.setRua(enderecoRua.toString());
-			dtoE.setBairro(enderecoBairro.toString());
-			dtoE.setNumero(Integer.parseInt(enderecoNumero.toString()));
-			dtoE.setComplemento(enderecoComplemento.toString());
+			dtoE.setCep(enderecoCep.getText());
+			dtoE.setRua(enderecoRua.getText());
+			dtoE.setBairro(enderecoBairro.getText());
+			dtoE.setNumero(Integer.parseInt(enderecoNumero.getText()));
+			dtoE.setComplemento(enderecoComplemento.getText());
 			dtoE.setCpf_morador(dtoC.getCpf());
 			boE.inserir(dtoE);
 		
+		}
+		
+		public void chamarTelaPrincipal() {
+			Telas.telaPrincipal();
+		}
+		public void voltarMainScreen() {
+			chamarTelaPrincipal();
 		}
 }

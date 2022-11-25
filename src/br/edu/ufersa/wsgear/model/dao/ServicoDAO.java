@@ -1,8 +1,10 @@
 package br.edu.ufersa.wsgear.model.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import br.edu.ufersa.wsgear.model.entity.Servico;
 
@@ -14,7 +16,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, servico.getNome());
 			pst.setDouble(2, servico.getPreco());
-			pst.setDate(3, servico.getDataServico());
+			pst.setDate(3, Date.valueOf(servico.getDataServico()));
 			pst.setString(4, servico.getStatus());
 			pst.execute();
 			
@@ -54,7 +56,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 			pst.setInt(1, servico.getIdServico());
 			pst.setString(2, servico.getNome());
 			pst.setDouble(3, servico.getPreco());
-			pst.setDate(4, servico.getDataServico());
+			pst.setDate(4, Date.valueOf(servico.getDataServico()));
 			pst.setString(5, servico.getStatus());
 			pst.executeUpdate();
 			return true;
@@ -77,7 +79,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 				s.setIdServico(rs.getInt("IdServico"));
 				s.setNome(rs.getString("Nome"));
 				s.setPreco(rs.getDouble("Preco"));
-				s.setDataServico(rs.getString("DataServico"));
+				s.setDataServico(LocalDate.parse(rs.getString("DataServico")));
 				s.setStatus(rs.getString("Status"));
 				return s;
 			} else
@@ -120,7 +122,7 @@ public class ServicoDAO extends BaseDAO<Servico> {
 				break;
 
 			case "DataServico":
-				pst.setDate(1, e.getDataServico());
+				pst.setDate(1, Date.valueOf(e.getDataServico()));
 				break;
 
 			case "Status":

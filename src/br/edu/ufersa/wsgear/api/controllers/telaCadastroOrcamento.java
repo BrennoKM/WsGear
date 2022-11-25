@@ -19,11 +19,18 @@ public class telaCadastroOrcamento {
 		
 		public void cadastrar() {
 			OrcamentoDTO dto = new OrcamentoDTO();
-			dto.setValor(Integer.parseInt(orcamentoPreco.toString()));
-			dto.setIdServico(Integer.parseInt(orcamentoIdServico.toString()));
-			dto.setIdPeca(Integer.parseInt(orcamentoIdPeca.toString()));
-			dto.setIdAutomovel(Integer.parseInt(orcamentoIdAutomovel.toString()));
+			dto.setValor(Double.parseDouble(orcamentoPreco.getText()));
+			dto.setIdServico(Integer.parseInt(orcamentoIdServico.getText()));
+			dto.setIdPeca(Integer.parseInt(orcamentoIdPeca.getText()));
+			dto.setIdAutomovel(Integer.parseInt(orcamentoIdAutomovel.getText()));
 			bo.inserir(dto);
-			Telas.telaPesquisaAutomovel();
+			//Telas.telaPesquisaAutomovel();
+		}
+		
+		public void chamarTelaPrincipal() {
+			Telas.telaPrincipal();
+		}
+		public void voltarMainScreen() {
+			chamarTelaPrincipal();
 		}
 }

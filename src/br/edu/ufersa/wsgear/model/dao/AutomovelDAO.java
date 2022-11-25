@@ -8,7 +8,7 @@ import br.edu.ufersa.wsgear.model.entity.Automovel;
 
 public class AutomovelDAO extends BaseDAO<Automovel> {
 	public boolean inserir(Automovel automovel) {
-		String sql = "INSERT INTO tb_automovel (Marca,Modelo,Cor,Placa,Ano,CPFdono) VALUES (?,?,?,?,?,?);";
+		String sql = "INSERT INTO tb_automovel (Marca,Modelo,Cor,Placa,Ano,CPFdono,idDono) VALUES (?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, automovel.getMarca());
@@ -17,6 +17,7 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			pst.setString(4, automovel.getPlaca());
 			pst.setInt(5, automovel.getAno());
 			pst.setString(6, automovel.getCpfDono());
+			pst.setInt(7, automovel.getIdDono());
 			//
 			//
 			pst.execute();

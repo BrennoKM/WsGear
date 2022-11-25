@@ -2,6 +2,7 @@ package br.edu.ufersa.wsgear.model.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,10 +53,10 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 			while (rs.next()) {
 				ServicoDTO servico = new ServicoDTO();
 				servico.setIdServico(rs.getInt("idServico"));
-				servico.setNome(rs.getString("nome"));
-				servico.setPreco(rs.getDouble("preco"));
-				servico.setDataServico(rs.getString("dataServico"));
-				servico.setStatus(rs.getString("status"));
+				servico.setNome(rs.getString("Nome"));
+				servico.setPreco(rs.getDouble("Preco"));
+				servico.setDataServico(LocalDate.parse(rs.getString("DataServico")));
+				servico.setStatus(rs.getString("Status"));
 
 				servicos.add(servico);
 			}

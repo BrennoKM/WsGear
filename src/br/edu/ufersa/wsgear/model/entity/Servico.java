@@ -38,7 +38,7 @@ public class Servico {
 		setStatus(status);
 	}
 
-	public Servico(String nome, double preco, String status, String dataServico) {
+	public Servico(String nome, double preco, String status, LocalDate dataServico) {
 		setNome(nome);
 		setPreco(preco);
 		setStatus(status);
@@ -69,8 +69,8 @@ public class Servico {
 		this.preco = preco;
 	}
 
-	public void setDataServico(String dataServico) {
-		this.dataServico = LocalDate.parse(dataServico);
+	public void setDataServico(LocalDate localDate) {
+		this.dataServico = localDate;
 	}
 
 	public void setDataInicialServico() {
@@ -94,8 +94,8 @@ public class Servico {
 		return preco;
 	}
 
-	public Date getDataServico() {
-		return Date.valueOf(dataServico);
+	public LocalDate getDataServico() {
+		return this.dataServico;
 	}
 
 	public String getStatus() {
@@ -109,7 +109,7 @@ public class Servico {
 		s.setStatus(dto.getStatus());
 		s.setPreco(dto.getPreco());
 		s.setIdServico(dto.getIdServico());
-		s.setDataServico(dto.getDataServico().toString());
+		s.setDataServico(dto.getDataServico());
 		return s;
 	}
 }

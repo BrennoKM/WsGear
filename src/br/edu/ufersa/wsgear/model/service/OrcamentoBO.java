@@ -17,7 +17,7 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 
 	public boolean inserir(OrcamentoDTO orcamentoDTO) {
 		Orcamento orcamento = Orcamento.converter(orcamentoDTO);
-		ResultSet rs = dao.findBySpecifiedField(orcamento, "idOrcamento");
+		ResultSet rs = dao.findBySpecifiedField(orcamento, "orcIdAutomovel");
 		try {
 			if (rs == null || !(rs.next()))
 				if (dao.inserir(orcamento) == true)
