@@ -40,8 +40,10 @@ public class ServicoDTO {
 	// Metodos set ---------------------------------------------------
 
 	public void setIdServico(int l) {
-
-		this.idServico = l;
+		if(l > 0)
+			this.idServico = l;
+		else
+			this.idServico = 0;
 	}
 	
 
@@ -50,17 +52,22 @@ public class ServicoDTO {
 		if (!nome.isEmpty()) {
 			this.nome = nome;
 		} else {
-			this.nome = "ServiÃ§o";
+			this.nome = "Servico";
 		}
 	}
 
 	public void setPreco(double preco) {
-
-		this.preco = preco;
+		if(preco >= 0.0)
+			this.preco = preco;
+		else
+			this.preco = 100.0;
 	}
 
-	public void setDataServico(LocalDate date) {
-		this.dataServico = date;
+	public void setDataServico(LocalDate localDate) {
+		if(localDate != null)
+			this.dataServico = localDate;
+		else
+			this.dataServico = LocalDate.of(1, 1, 2001);
 	}
 
 	public void setDataInicialServico() {
@@ -68,7 +75,10 @@ public class ServicoDTO {
 	}
 
 	public void setStatus(String status) {
-		this.status = status;
+		if(status != null && !(status.isEmpty()) && !(status.isBlank()))
+			this.status = status;
+		else
+			this.status = "Indefinido";
 	}
 	// Metodos get ---------------------------------------------------
 
