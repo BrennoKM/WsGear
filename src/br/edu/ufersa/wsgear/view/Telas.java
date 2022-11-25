@@ -141,7 +141,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaPecaScreen.fxml"));			
 			Scene scene = new Scene (root);																	
 			stage.setScene(scene);																			
-			stage.setTitle("Pesquisa de Peças");													
+			stage.setTitle("Pesquisa de Peï¿½as");													
 			stage.show();
 		}																									
 		catch(Exception e) {																				
@@ -167,7 +167,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisaServicoScreen.fxml"));			
 			Scene scene = new Scene (root);																	
 			stage.setScene(scene);																			
-			stage.setTitle("Pesquisa de Serviços");													
+			stage.setTitle("Pesquisa de Serviï¿½os");													
 			stage.show();
 		}																									
 		catch(Exception e) {																				
@@ -206,7 +206,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroPecaScreen.fxml"));			
 			Scene scene = new Scene (root);																	
 			stage.setScene(scene);																			
-			stage.setTitle("Cadastro de Peça");													
+			stage.setTitle("Cadastro de Peca");													
 			stage.show();
 		}																									
 		catch(Exception e) {																				
@@ -219,7 +219,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroServicoScreen.fxml"));			
 			Scene scene = new Scene (root);																	
 			stage.setScene(scene);																			
-			stage.setTitle("Cadastro de Peça");													
+			stage.setTitle("Cadastro de Servico");													
 			stage.show();
 		}																									
 		catch(Exception e) {																				
@@ -231,7 +231,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("resources/cadastroOrcamentoScreen.fxml"));			
 			Scene scene = new Scene (root);																	
 			stage.setScene(scene);																			
-			stage.setTitle("Cadastro de Peça");													
+			stage.setTitle("Cadastro de Orcamento");													
 			stage.show();
 		}																									
 		catch(Exception e) {																				
