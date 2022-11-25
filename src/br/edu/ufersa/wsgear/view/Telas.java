@@ -97,7 +97,7 @@ public class Telas extends Application{
 		
 		orBO.inserir(orDTO);
 		*/
-		//launch();
+		launch();
 	}
 	private void setStage(Stage st) {
 		stage =st;
@@ -105,7 +105,7 @@ public class Telas extends Application{
 	public void start(Stage arg0) throws Exception {
 		setStage(arg0);
 		arg0.setTitle("Teste");
-		telaPrincipal();
+		telaCadastroAutomovel();
 	}
 	
 	public static void telaPrincipal() {																

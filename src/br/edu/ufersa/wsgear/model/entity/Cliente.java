@@ -13,7 +13,7 @@ public class Cliente {
 	private String cpf;
 	private String telefone;
 
-	private List<Endereco> enderecos = new ArrayList<>();
+	private Endereco endereco;
 	private List<Automovel> automoveis = new ArrayList<>();
 
 	
@@ -38,7 +38,7 @@ public class Cliente {
 	// Metodos set
 
 	public void setNome(String nome) {
-		if (!nome.isEmpty()) {
+		if ((!nome.isEmpty())&& (nome != null) ) {
 			this.nome = nome;
 		} else {
 			this.nome = "Cliente sem nome";
@@ -53,15 +53,10 @@ public class Cliente {
 
 	public void setEndereco(Endereco endereco) {
 		if (endereco != null) {
-			enderecos.add(endereco);
+			this.endereco =endereco;
 		}
 	}
 
-	public void setEnderecos(List<Endereco> list) {
-		if (list != null) {
-			this.enderecos = list;
-		}
-	}
 
 	public void setTelefone(String telefone) {
 		if (!telefone.isEmpty()) {
@@ -97,8 +92,8 @@ public class Cliente {
 		return this.cpf;
 	}
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
+	public Endereco getEnderecos() {
+		return endereco;
 	}
 
 	public String getTelefone() {
@@ -118,7 +113,7 @@ public class Cliente {
 		c.setCpf(dto.getCpf());
 		c.setNome(dto.getNome());
 		c.setTelefone(dto.getTelefone());
-		c.setEnderecos(dto.getEnderecos());
+		c.setEndereco(dto.getEndereco());
 		c.setAutomoveis(dto.getAutomoveis());
 		c.setIdCliente(dto.getIdCliente());
 		return c;

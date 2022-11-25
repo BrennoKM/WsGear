@@ -48,6 +48,22 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 		return 0;
 	}
 
+	public Cliente buscarCliente(ClienteDTO clienteDTO) {
+		Cliente cliente = Cliente.converter(clienteDTO);
+		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
+		try {
+			if(rs!=null && rs.next()) {
+				cliente.setIdCliente(rs.getInt("idCliente"));
+				cliente.setNome(rs.getString("Nome"));
+				return cliente;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+	
 	public List<Cliente> listar() {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		ResultSet rs = dao.findAll();

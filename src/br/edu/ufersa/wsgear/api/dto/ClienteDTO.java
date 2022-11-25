@@ -13,7 +13,7 @@ public class ClienteDTO {
 	private String cpf;
 	private String telefone;
 
-	private List<Endereco> enderecos = new ArrayList<>();
+	private Endereco endereco;
 	private List<Automovel> automoveis = new ArrayList<>();
 
 	
@@ -38,7 +38,7 @@ public class ClienteDTO {
 	// Metodos set
 
 	public void setNome(String nome) {
-		if (!nome.isEmpty()) {
+		if ((!nome.isEmpty())&& (nome != null) ) {
 			this.nome = nome;
 		} else {
 			this.nome = "Cliente sem nome";
@@ -53,13 +53,7 @@ public class ClienteDTO {
 
 	public void setEndereco(Endereco endereco) {
 		if (endereco != null) {
-			enderecos.add(endereco);
-		}
-	}
-
-	public void setEnderecos(List<Endereco> list) {
-		if (list != null) {
-			this.enderecos = list;
+			this.endereco = endereco;
 		}
 	}
 
@@ -98,8 +92,8 @@ public class ClienteDTO {
 		return this.cpf;
 	}
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
+	public Endereco getEndereco() {
+		return this.endereco;
 	}
 
 	public String getTelefone() {
