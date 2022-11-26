@@ -17,22 +17,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class telaPesquisaOrcamento implements Initializable {
-	@FXML
-	private TableView<OrcamentoDTO> tabelaOrcamento;
-	@FXML
-	private TableColumn<OrcamentoDTO, String> idPecaColumn;
-	@FXML
-	private TableColumn<OrcamentoDTO, String> idServicoColumn;
-	@FXML
-	private TableColumn<OrcamentoDTO, String> idAutomovelColumn;
-	@FXML
-	private TableColumn<OrcamentoDTO, String> PrecoColumn;
-	@FXML
-	private Button editarButton;
-	@FXML
-	private Button cadastrarButton;
-	@FXML
-	private Button excluirButton;
+	@FXML private TableView<OrcamentoDTO> tabelaOrcamento;
+	@FXML private TableColumn<OrcamentoDTO, String> idOrcamentoColumn;
+	@FXML private TableColumn<OrcamentoDTO, String> idPecaColumn;
+	@FXML private TableColumn<OrcamentoDTO, String> idServicoColumn;
+	@FXML private TableColumn<OrcamentoDTO, String> idAutomovelColumn;
+	@FXML private TableColumn<OrcamentoDTO, String> PrecoColumn;
+	@FXML private Button editarButton;
+	@FXML private Button cadastrarButton;
+	@FXML private Button excluirButton;
 
 	private OrcamentoBO bo = new OrcamentoBO();
 	private ObservableList<OrcamentoDTO> listaDeOrcamentos;
@@ -44,6 +37,7 @@ public class telaPesquisaOrcamento implements Initializable {
 	public void listarOrcamentos() {
 		List<OrcamentoDTO> orcamentos = bo.listar();
 		listaDeOrcamentos = FXCollections.observableArrayList(orcamentos);
+		idOrcamentoColumn.setCellValueFactory(new PropertyValueFactory<>("idOrcamento"));
 		idPecaColumn.setCellValueFactory(new PropertyValueFactory<>("idPeca"));
 		idServicoColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
 		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("orcIdAutomovel"));

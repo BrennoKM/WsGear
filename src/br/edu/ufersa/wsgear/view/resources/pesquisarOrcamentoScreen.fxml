@@ -11,10 +11,11 @@
    <children>
       <TableView fx:id="tabelaOrcamento" layoutX="12.0" layoutY="70.0" prefHeight="310.0" prefWidth="680.0">
          <columns>
-            <TableColumn fx:id="idPecaColumn" prefWidth="102.0" text="idPeca" />
-            <TableColumn fx:id="idServicoColumn" prefWidth="228.0" text="idServico" />
-            <TableColumn fx:id="idAutomovelColumn" prefWidth="199.0" text="idAutomovel" />
-            <TableColumn fx:id="PrecoColumn" prefWidth="150.0" text="Preco" />
+            <TableColumn fx:id="idOrcamentoColumn" prefWidth="87.0" text="idOrcamento" />
+            <TableColumn fx:id="idPecaColumn" prefWidth="82.0" text="idPeca" />
+            <TableColumn fx:id="idServicoColumn" text="idServico" />
+            <TableColumn fx:id="idAutomovelColumn" prefWidth="109.0" text="idAutomovel" />
+            <TableColumn fx:id="PrecoColumn" prefWidth="321.0" text="Preco" />
          </columns>
       </TableView>
       <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
