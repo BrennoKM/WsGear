@@ -50,7 +50,8 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 	}
 
 	public boolean deletar(OrcamentoDTO orcamentoDTO) {
-		Orcamento orcamento = Orcamento.converter(orcamentoDTO);
+		Orcamento orcamento = new Orcamento();
+		orcamento.setIdOrcamento(orcamentoDTO.getIdOrcamento());
 		
 		ResultSet rs = dao.findBySpecifiedField(orcamento, "idOrcamento");
 		try {

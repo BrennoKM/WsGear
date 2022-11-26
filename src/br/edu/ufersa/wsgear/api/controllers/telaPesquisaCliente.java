@@ -89,10 +89,16 @@ public class telaPesquisaCliente implements Initializable{
 	}
 
 	public void excluir() {
-
+		ClienteDTO c = new ClienteDTO();
+		c.setIdCliente(tabelaCliente.getSelectionModel().getSelectedItem().getIdCliente());
+		
+		bo.deletar(c);
+		listarClientes();
 	}
 
 	public void editar() {
-
+		ClienteDTO c = new ClienteDTO();
+		c.setIdCliente(tabelaCliente.getSelectionModel().getSelectedItem().getIdCliente());
+		telaAtualizarCliente.telaAtualizar(c);
 	}
 }

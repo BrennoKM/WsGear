@@ -120,7 +120,8 @@ public class AutomovelDAO extends BaseDAO<Automovel> {
 			case "Placa":
 				pst.setString(1, e.getPlaca());
 				break;
-
+			case "CPFDono":
+				pst.setString(1, e.getCpfDono());
 			default:
 				pst.setInt(1, e.getIdAutomovel());
 			}

@@ -88,7 +88,7 @@ public class Telas extends Application {
 
 	public void start(Stage arg0) throws Exception {
 		setStage(arg0);
-		arg0.setTitle("Teste");
+		arg0.setTitle("Ws");
 		// telaCadastroAutomovel();
 		// telaCadastroCliente();
 		telaPrincipal();

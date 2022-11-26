@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class telaPesquisaAutomovel implements Initializable{
@@ -27,8 +28,10 @@ public class telaPesquisaAutomovel implements Initializable{
 	@FXML private TableColumn<AutomovelDTO, String> PlacaColumn;
 	@FXML private TableColumn<AutomovelDTO, String> AnoColumn;
 	@FXML private ChoiceBox<String> tipoBox;
+	@FXML private TextField pesquisaContent;
 	
-	private String opcoes[]= {"Placa", "CPFdono"};
+	
+	private String opcoes[]= {"Placa", "CPFDono"};
 	private AutomovelBO bo = new AutomovelBO();
     private ObservableList<AutomovelDTO> listaDeAutomoveis;
     
@@ -51,8 +54,41 @@ public class telaPesquisaAutomovel implements Initializable{
 		tabelaAutomovel.setItems(listaDeAutomoveis);
 		
 	}
+	
+	public void listarAutomoveisBusca(AutomovelDTO a, String tipo) {
+		List<AutomovelDTO> automoveis = bo.listarBusca(a, tipo);
+		
+		
+		
+		listaDeAutomoveis = FXCollections.observableArrayList(automoveis);
+		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("idAutomovel"));
+		idDonoColumn.setCellValueFactory(new PropertyValueFactory<>("idDono"));
+		CPFDonoColumn.setCellValueFactory(new PropertyValueFactory<>("cpfDono"));
+		MarcaColumn.setCellValueFactory(new PropertyValueFactory<>("marca"));
+		ModeloColumn.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+		CorColumn.setCellValueFactory(new PropertyValueFactory<>("cor"));
+		PlacaColumn.setCellValueFactory(new PropertyValueFactory<>("placa"));
+		AnoColumn.setCellValueFactory(new PropertyValueFactory<>("ano"));
+		tabelaAutomovel.setItems(listaDeAutomoveis);
+		
+	}
+	
 	public void pesquisar() {
-		listarAutomoveis();
+		if(pesquisaContent.getText().equals("")) {
+			listarAutomoveis();
+		} else {
+			AutomovelDTO a = new AutomovelDTO();
+			switch(tipoBox.getValue()) {
+				case "Placa":
+					a.setPlaca(pesquisaContent.getText());
+					listarAutomoveisBusca(a, "Placa");
+					break;
+				case "CPFDono":
+					a.setCpfDono(pesquisaContent.getText());
+					listarAutomoveisBusca(a, "CPFDono");
+					break;
+			}
+		}
 	}
 	public void chamarTelaPrincipal() {
 		Telas.telaPrincipal();
@@ -63,11 +99,16 @@ public class telaPesquisaAutomovel implements Initializable{
 	}
 
 	public void excluir() {
-
+		AutomovelDTO a = new AutomovelDTO();
+		a.setIdAutomovel(tabelaAutomovel.getSelectionModel().getSelectedItem().getIdAutomovel());
+		bo.deletar(a);
+		listarAutomoveis();
 	}
 
 	public void editar() {
-
+		AutomovelDTO a = new AutomovelDTO();
+		a.setIdAutomovel(tabelaAutomovel.getSelectionModel().getSelectedItem().getIdAutomovel());
+		telaAtualizarAutomovel.telaAtualizar(a);
 	}
 
 }

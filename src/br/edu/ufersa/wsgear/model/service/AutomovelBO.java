@@ -54,8 +54,39 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		}
 	}
 	
-	public int buscarIdAutomovel(AutomovelDTO AutomovelDTO) {
-		Automovel automovel = Automovel.converter(AutomovelDTO);
+	public List<AutomovelDTO> listarBusca(AutomovelDTO automovelDTO, String field){
+		System.out.println("teste");
+		List<AutomovelDTO> automoveis = new ArrayList<AutomovelDTO>();
+		Automovel a = new Automovel();
+		if (field.equals("CPFDono")) {
+			a.setCpfDono(automovelDTO.getCpfDono());
+		} else if(field.equals("Placa")) {
+			a.setPlaca(automovelDTO.getPlaca());
+		}
+		
+		ResultSet rs = dao.findBySpecifiedField(a, field);
+		try {
+			while(rs.next()) {
+				AutomovelDTO automovel = new AutomovelDTO();
+				automovel.setMarca(rs.getString("Marca"));
+				automovel.setModelo(rs.getString("Modelo"));
+				automovel.setCor(rs.getNString("Cor"));
+				automovel.setIdDono(rs.getInt("idDono"));
+				automovel.setCpfDono(rs.getString("CPFdono"));
+				automovel.setIdAutomovel(rs.getInt("idAutomovel"));
+				automovel.setAno(rs.getInt("Ano"));
+				automovel.setPlaca(rs.getString("Placa"));
+				automoveis.add(automovel);
+			}
+			return automoveis;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public int buscarIdAutomovel(AutomovelDTO automovelDTO) {
+		Automovel automovel = Automovel.converter(automovelDTO);
 		ResultSet rs = dao.findBySpecifiedField(automovel, "Placa");
 		try {
 			if(rs!=null && rs.next()) {
@@ -86,8 +117,9 @@ public class AutomovelBO implements ServiceInterface<AutomovelDTO>{
 		}	
 	}
 	public boolean deletar(AutomovelDTO automovelDTO) {
-		Automovel automovel = Automovel.converter(automovelDTO);
-		ResultSet rs = dao.findBySpecifiedField(automovel, "idDono");
+		Automovel automovel = new Automovel();
+		automovel.setIdAutomovel(automovelDTO.getIdAutomovel());
+		ResultSet rs = dao.findBySpecifiedField(automovel, "idAutomovel");
 		try {
 			if(rs!=null && rs.next() ) {
 				if(dao.deletar(automovel) == true)

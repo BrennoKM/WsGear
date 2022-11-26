@@ -115,9 +115,10 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 	}
 
 	public boolean deletar(ClienteDTO clienteDTO) {
-		Cliente cliente = Cliente.converter(clienteDTO);
+		Cliente cliente = new Cliente();
+		cliente.setIdCliente(clienteDTO.getIdCliente());
 
-		ResultSet rs = dao.findBySpecifiedField(cliente, "CPF");
+		ResultSet rs = dao.findBySpecifiedField(cliente, "idCliente");
 		try {
 			if (rs != null && rs.next()) {
 				if (dao.deletar(cliente) == true)

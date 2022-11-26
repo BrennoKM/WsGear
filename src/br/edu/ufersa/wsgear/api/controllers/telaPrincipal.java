@@ -9,49 +9,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
-public class telaPrincipal implements Initializable{
-	@FXML private ChoiceBox<String> tiposBox;
-	@FXML private ChoiceBox<String> editarTipoBox;
-	@FXML private Button concluirervicoButton;
-	@FXML private Button relatorioButton;
-	@FXML private Button pesquisarButton;
-	@FXML private Button editarButton;
-	
-	private String opcoes[]= {"Automovel", "Cliente", "Orcamento", "Peca", "Servico"};
-	
+public class telaPrincipal implements Initializable {
+	@FXML
+	private ChoiceBox<String> tiposBox;
+	@FXML
+	private ChoiceBox<String> editarTipoBox;
+
+	private String opcoes[] = { "Automovel", "Cliente", "Orcamento", "Peca", "Servico" };
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		tiposBox.getItems().addAll(opcoes);
 		editarTipoBox.getItems().addAll(opcoes);
 	}
-	
-	public void telaCadastrar() {
-		switch (tiposBox.getValue()) {
-			case "Automovel":
-				Telas.telaCadastroAutomovel();
-				break;
-			case "Cliente":
-				Telas.telaCadastroCliente();
-				break;
-			case "Peca":
-				Telas.telaCadastroPeca();
-				break;
-			case "Servico":
-				Telas.telaCadastroServico();
-				break;
-			case "Orcamento":
-				Telas.telaCadastroOrcamento();
-				break;
-		}
-	}
-	
+
 	public void telaConcluirServico() {
-		
+
 	}
-	
-	public void telaRelatorio() {
-		
+
+	public void telaGerarRelatorio() {
+
 	}
-	
+
 	public void telaPesquisar() {
 		switch (editarTipoBox.getValue()) {
 		case "Automovel":
@@ -69,6 +46,6 @@ public class telaPrincipal implements Initializable{
 		case "Orcamento":
 			Telas.telaPesquisaOrcamento();
 			break;
-	}
+		}
 	}
 }

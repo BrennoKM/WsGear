@@ -66,11 +66,16 @@ public class telaPesquisaOrcamento implements Initializable {
 	}
 
 	public void excluir() {
-
+		OrcamentoDTO o = new OrcamentoDTO();
+		o.setIdOrcamento(tabelaOrcamento.getSelectionModel().getSelectedItem().getIdOrcamento());
+		bo.deletar(o);
+		listarOrcamentos();
 	}
 
 	public void editar() {
-
+		OrcamentoDTO o = new OrcamentoDTO();
+		o.setIdOrcamento(tabelaOrcamento.getSelectionModel().getSelectedItem().getIdOrcamento());
+		telaAtualizarOrcamento.telaAtualizar(o);
 	}
 
 }

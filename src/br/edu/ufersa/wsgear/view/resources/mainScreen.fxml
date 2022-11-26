@@ -26,7 +26,7 @@
          </font>
       </Label>
       <Label disable="true" layoutX="15.0" layoutY="293.0" text="Registra pagamento e conclui serviço" />
-      <Button fx:id="editarButton" layoutX="223.0" layoutY="174.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#telaPesquisar" prefHeight="50.0" prefWidth="60.0">
+      <Button layoutX="223.0" layoutY="174.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#telaPesquisar" prefHeight="50.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font>
