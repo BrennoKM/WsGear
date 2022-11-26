@@ -105,8 +105,10 @@ public class Orcamento {
 
 	public static Orcamento converter(OrcamentoDTO orcamentoDTO) {
 		Orcamento orcamento = new Orcamento();
-		orcamento.inserirPecaServicoValor(orcamentoDTO.getPeca(), orcamentoDTO.getServico(),
-				orcamentoDTO.getValor());
+		orcamento.setIdAutomovel(orcamentoDTO.getIdAutomovel());
+		orcamento.setIdPeca(orcamentoDTO.getIdPeca());
+		orcamento.setValor(orcamentoDTO.getValor());
+		orcamento.setIdServico(orcamentoDTO.getIdServico());
 		orcamento.setIdOrcamento(orcamentoDTO.getIdOrcamento());
 		return orcamento;
 	}

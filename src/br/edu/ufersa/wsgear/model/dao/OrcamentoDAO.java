@@ -16,7 +16,8 @@ public class OrcamentoDAO extends BaseDAO<Orcamento>{
 			pst.setDouble(3, o.getValor());
 			pst.setInt(4, o.getIdAutomovel());
 			pst.execute();
-			
+
+			System.out.println("teste");
 		//	ResultSet generatedKeys = pst.getGeneratedKeys();
 		//	if(generatedKeys.next()) {
 		//		o.setIdOrcamento(generatedKeys.getInt("idOrcamento"));

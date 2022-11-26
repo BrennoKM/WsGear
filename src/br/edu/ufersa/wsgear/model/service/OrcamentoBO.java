@@ -17,15 +17,18 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 
 	public boolean inserir(OrcamentoDTO orcamentoDTO) {
 		Orcamento orcamento = Orcamento.converter(orcamentoDTO);
-		ResultSet rs = dao.findBySpecifiedField(orcamento, "orcIdAutomovel");
+		ResultSet rs = dao.findBySpecifiedField(orcamento, "idOrcamento");
+
 		try {
-			if (rs == null || !(rs.next()))
-				if (dao.inserir(orcamento) == true)
+			if (rs == null || !(rs.next())) {
+				if (dao.inserir(orcamento) == true) {
 					return true;
-				else
+				}else {
 					return false;
-			else
+				}
+			}else {
 				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -72,8 +75,10 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 				OrcamentoDTO orcamento = new OrcamentoDTO();
 				orcamento.setIdOrcamento(rs.getInt("idOrcamento"));
 				orcamento.setValor(rs.getDouble("Valor"));
-				orcamento.setPeca(new Peca(rs.getInt("orcIdPeca")));
-				orcamento.setServico(new Servico(rs.getInt("orcIdServico")));
+				orcamento.setIdPeca(rs.getInt("orcIdPeca"));
+				orcamento.setIdServico(rs.getInt("orcIdServico"));
+				//orcamento.setPeca(new Peca(rs.getInt("orcIdPeca")));
+				//orcamento.setServico(new Servico(rs.getInt("orcIdServico")));
 			
 				orcamentos.add(orcamento);
 			}
