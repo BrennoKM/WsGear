@@ -76,12 +76,12 @@ public class ClienteBO implements ServiceInterface<ClienteDTO> {
 		return null;
 	}
 	
-	public List<Cliente> listar() {
-		List<Cliente> clientes = new ArrayList<Cliente>();
+	public List<ClienteDTO> listar() {
+		List<ClienteDTO> clientes = new ArrayList<ClienteDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while (rs.next()) {
-				Cliente cliente = new Cliente();
+				ClienteDTO cliente = new ClienteDTO();
 				cliente.setCpf(rs.getString("CPF"));
 				cliente.setNome(rs.getString("Nome"));
 				cliente.setTelefone(rs.getNString("Telefone"));

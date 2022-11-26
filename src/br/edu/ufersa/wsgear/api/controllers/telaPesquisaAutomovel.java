@@ -18,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class telaPesquisaAutomovel implements Initializable{
 	@FXML private TableView<AutomovelDTO> tabelaAutomovel;
-	
 	@FXML private TableColumn<AutomovelDTO, String> idAutomovelColumn;
 	@FXML private TableColumn<AutomovelDTO, String> idDonoColumn;
 	@FXML private TableColumn<AutomovelDTO, String> CPFDonoColumn;
@@ -36,7 +35,7 @@ public class telaPesquisaAutomovel implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tipoBox.getItems().addAll(opcoes);
 		//pesquisar();
-		//listarAutomoveis();
+		listarAutomoveis();
 	}
 	public void listarAutomoveis() {
 		List<AutomovelDTO> automoveis = bo.listar();
@@ -60,7 +59,7 @@ public class telaPesquisaAutomovel implements Initializable{
 	}
 
 	public void cadastrar() {
-
+		Telas.telaCadastroAutomovel();
 	}
 
 	public void excluir() {

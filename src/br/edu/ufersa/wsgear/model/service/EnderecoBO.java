@@ -2,6 +2,8 @@ package br.edu.ufersa.wsgear.model.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.ufersa.wsgear.api.dto.EnderecoDTO;
 import br.edu.ufersa.wsgear.model.dao.BaseInterDAO;
@@ -60,6 +62,27 @@ public class EnderecoBO implements ServiceInterface<EnderecoDTO> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+
+	public List<EnderecoDTO> listar() {
+		List<EnderecoDTO> enderecos = new ArrayList<EnderecoDTO>();
+		ResultSet rs = biDao.findAll();
+		try {
+			while(rs.next()) {
+				EnderecoDTO endereco = new EnderecoDTO();
+				endereco.setBairro(rs.getString("Bairro"));
+				endereco.setCep(rs.getString("CEP"));
+				endereco.setComplemento(rs.getString("Complemento"));
+				endereco.setCpf_morador(rs.getString("Cpf_morador"));
+				endereco.setNumero(rs.getInt("Numero"));
+				endereco.setRua(rs.getString("Rua"));
+				enderecos.add(endereco);
+			}
+			return enderecos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

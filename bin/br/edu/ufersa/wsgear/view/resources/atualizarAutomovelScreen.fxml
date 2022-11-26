@@ -27,14 +27,13 @@
       <TextField fx:id="automovelPlaca" layoutX="289.0" layoutY="239.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: AAAAAAAA" />
       <Label layoutX="220.0" layoutY="274.0" text="Ano:" />
       <TextField fx:id="automovelAno" layoutX="289.0" layoutY="271.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 1970" />
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="194.0" layoutY="48.0" text="Atualização Automóvel">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="atualizarButton" layoutX="302.0" layoutY="392.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
-      <Button fx:id="cancelButton" layoutX="415.0" layoutY="392.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
-      <Button fx:id="excluirButton" layoutX="357.0" layoutY="392.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button layoutX="302.0" layoutY="382.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
+      <Button layoutX="361.0" layoutY="382.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
    </children>
 </Pane>

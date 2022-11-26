@@ -4,7 +4,6 @@ import br.edu.ufersa.wsgear.api.dto.OrcamentoDTO;
 import br.edu.ufersa.wsgear.model.service.OrcamentoBO;
 import br.edu.ufersa.wsgear.view.Telas;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class telaCadastroOrcamento {
@@ -12,9 +11,6 @@ public class telaCadastroOrcamento {
 	@FXML private TextField orcamentoIdServico;
 	@FXML private TextField orcamentoIdAutomovel;
 	@FXML private TextField orcamentoPreco;
-	@FXML private Button cadastrarButton;
-	@FXML private Button cancelButton;
-	@FXML private Button homeButton;
 		private OrcamentoBO bo = new OrcamentoBO();
 		
 		public void cadastrar() {
@@ -24,13 +20,13 @@ public class telaCadastroOrcamento {
 			dto.setIdPeca(Integer.parseInt(orcamentoIdPeca.getText()));
 			dto.setIdAutomovel(Integer.parseInt(orcamentoIdAutomovel.getText()));
 			bo.inserir(dto);
-			//Telas.telaPesquisaAutomovel();
+			Telas.telaPesquisaOrcamento();
 		}
 		
 		public void chamarTelaPrincipal() {
 			Telas.telaPrincipal();
 		}
-		public void voltarMainScreen() {
-			chamarTelaPrincipal();
+		public void voltarTelaPesquisaOrcamento() {
+			Telas.telaPesquisaOrcamento();
 		}
 }

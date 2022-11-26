@@ -32,12 +32,12 @@ public class telaPesquisaServico implements Initializable{
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tipoBox.getItems().addAll(opcoes);
-		//pesquisar();
+		listarServicos();
 	}
 	public void listarServicos() {
 		List<ServicoDTO> servicos = bo.listar();
 		listaDeServicos = FXCollections.observableArrayList(servicos);
-		StatusColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
+		idServicoColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
 		NomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		DataServicoColumn.setCellValueFactory(new PropertyValueFactory<>("dataServico"));
 		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("preco"));
@@ -52,7 +52,7 @@ public class telaPesquisaServico implements Initializable{
 	}
 
 	public void cadastrar() {
-
+		Telas.telaCadastroServico();
 	}
 
 	public void excluir() {

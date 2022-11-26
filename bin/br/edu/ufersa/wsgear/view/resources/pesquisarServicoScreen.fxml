@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaPesquisaServico">
    <children>
-      <TableView layoutX="12.0" layoutY="100.0" prefHeight="270.0" prefWidth="680.0">
+      <TableView fx:id="tabelaServico" layoutX="12.0" layoutY="100.0" prefHeight="270.0" prefWidth="680.0">
          <columns>
             <TableColumn fx:id="idServicoColumn" prefWidth="75.0" text="idServico" />
             <TableColumn fx:id="NomeColumn" prefWidth="199.0" text="Nome" />
@@ -20,7 +20,7 @@
             <TableColumn fx:id="StatusColumn" prefWidth="117.0" text="Status" />
          </columns>
       </TableView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />

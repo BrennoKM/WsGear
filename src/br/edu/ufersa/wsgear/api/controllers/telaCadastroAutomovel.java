@@ -6,7 +6,6 @@ import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 import br.edu.ufersa.wsgear.api.dto.ClienteDTO;
 import br.edu.ufersa.wsgear.view.Telas;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class telaCadastroAutomovel {
@@ -16,9 +15,6 @@ public class telaCadastroAutomovel {
 	@FXML private TextField automovelCor;
 	@FXML private TextField automovelPlaca;
 	@FXML private TextField automovelAno;
-	@FXML private Button cadastrarButton;
-	@FXML private Button cancelButton;
-	@FXML private Button homeButton;
 		private AutomovelBO bo = new AutomovelBO();
 		private ClienteBO cBO = new ClienteBO();
 		
@@ -35,13 +31,14 @@ public class telaCadastroAutomovel {
 			dto.setIdDono(cBO.buscarIdClienteAutomovel(cDTO));
 			
 			bo.inserir(dto);
-			//Telas.telaPesquisaAutomovel();
+			Telas.telaPesquisaAutomovel();
 		}
 		
 		public void chamarTelaPrincipal() {
 			Telas.telaPrincipal();
 		}
-		public void voltarMainScreen() {
-			chamarTelaPrincipal();
+		
+		public void voltarTelaPesquisaAutomovel() {
+			Telas.telaPesquisaAutomovel();
 		}
 }

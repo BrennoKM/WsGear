@@ -26,14 +26,14 @@
       <TextField fx:id="enderecoComplemento" layoutX="289.0" layoutY="331.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Perto da Budega de Seu Joaquim" />
       <Label layoutX="211.0" layoutY="303.0" text="Número:" />
       <TextField fx:id="enderecoNumero" layoutX="289.0" layoutY="299.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: 777" />
-      <Button fx:id="cadastrarButton" layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button fx:id="cancelButton" layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <Button layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarTelaPesquisaCliente" text="Cancelar" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="220.0" layoutY="48.0" text="Cadastro de Cliente">
          <font>
             <Font size="30.0" />

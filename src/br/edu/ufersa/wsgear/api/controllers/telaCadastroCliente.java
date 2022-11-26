@@ -6,7 +6,6 @@ import br.edu.ufersa.wsgear.model.service.ClienteBO;
 import br.edu.ufersa.wsgear.model.service.EnderecoBO;
 import br.edu.ufersa.wsgear.view.Telas;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class telaCadastroCliente {
@@ -18,10 +17,6 @@ public class telaCadastroCliente {
 	@FXML private TextField enderecoBairro;
 	@FXML private TextField enderecoNumero;
 	@FXML private TextField enderecoComplemento;
-	@FXML private Button cadastrarButton;
-	@FXML private Button cancelButton;
-	@FXML private Button homeButton;
-	
 		private ClienteBO boC = new ClienteBO();
 		private EnderecoBO boE = new EnderecoBO();
 		
@@ -40,13 +35,13 @@ public class telaCadastroCliente {
 			dtoE.setComplemento(enderecoComplemento.getText());
 			dtoE.setCpf_morador(dtoC.getCpf());
 			boE.inserir(dtoE);
-		
+			Telas.telaPesquisaCliente();
 		}
 		
 		public void chamarTelaPrincipal() {
 			Telas.telaPrincipal();
 		}
-		public void voltarMainScreen() {
-			chamarTelaPrincipal();
+		public void voltarTelaPesquisaCliente() {
+			Telas.telaPesquisaCliente();
 		}
 }

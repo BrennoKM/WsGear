@@ -31,14 +31,13 @@
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="231.0" layoutY="48.0" text="Atualização Cliente">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="atualizarButton" layoutX="302.0" layoutY="392.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
-      <Button fx:id="cancelButton" layoutX="415.0" layoutY="392.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
-      <Button fx:id="excluirButton" layoutX="357.0" layoutY="392.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button layoutX="302.0" layoutY="381.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
+      <Button layoutX="361.0" layoutY="381.0" mnemonicParsing="false" onAction="#voltarTelaPesquisaCliente" text="Cancelar" />
+      <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
    </children>
 </Pane>

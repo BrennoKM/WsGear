@@ -16,14 +16,14 @@
       <TextField fx:id="pecaNome" layoutX="283.0" layoutY="114.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Pneu" />
       <TextField fx:id="pecaFabricante" layoutX="283.0" layoutY="144.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: Pirelli" />
       <TextField fx:id="pecaPreco" layoutX="283.0" layoutY="172.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex.: R$ 150.00" />
-      <Button fx:id="cadastrarButton" layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button fx:id="cancelButton" layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <Button layoutX="275.0" layoutY="383.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="364.0" layoutY="383.0" mnemonicParsing="false" onAction="#voltarTelaPesquisaPeca" text="Cancelar" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <Label layoutX="235.0" layoutY="48.0" text="Cadastro de Peça">
          <font>
             <Font size="30.0" />

@@ -51,14 +51,25 @@ public class telaPesquisaPeca implements Initializable {
 	}
 
 	public void cadastrar() {
-
+		Telas.telaCadastroPeca();
 	}
 
 	public void excluir() {
-
+		PecaDTO p = new PecaDTO();
+		
+		p.setFab(tabelaPeca.getSelectionModel().getSelectedItem().getFab());
+		p.setIdPeca(tabelaPeca.getSelectionModel().getSelectedItem().getIdPeca());
+		p.setNome(tabelaPeca.getSelectionModel().getSelectedItem().getNome());
+		p.setPreco(tabelaPeca.getSelectionModel().getSelectedItem().getPreco());
+		
+		bo.deletar(p);
+		listarPecas();
 	}
 
 	public void editar() {
-
+		PecaDTO dto = new PecaDTO();
+		
+		dto.setIdPeca(tabelaPeca.getSelectionModel().getSelectedItem().getIdPeca());
+		telaAtualizarPeca.telaAtualizar(dto);
 	}
 }

@@ -227,4 +227,28 @@ public class Telas extends Application {
 		}
 	}
 
+	public static void telaPesquisaCliente() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisarClienteScreen.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Pesquisa de Clientes");
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void telaAtualizarPeca() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/atualizarPecaScreen.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Atualizar Peca");
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
