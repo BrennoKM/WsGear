@@ -12,8 +12,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class telaPesquisaOrcamento implements Initializable {
@@ -23,6 +25,9 @@ public class telaPesquisaOrcamento implements Initializable {
 	@FXML private TableColumn<OrcamentoDTO, String> idServicoColumn;
 	@FXML private TableColumn<OrcamentoDTO, String> idAutomovelColumn;
 	@FXML private TableColumn<OrcamentoDTO, String> PrecoColumn;
+	@FXML private ChoiceBox<String> tipoBox;
+	@FXML private TextField pesquisaContent;
+	@FXML private Button pesquisaButton;
 	@FXML private Button editarButton;
 	@FXML private Button cadastrarButton;
 	@FXML private Button excluirButton;
