@@ -16,8 +16,8 @@
             <TableColumn fx:id="idOrcamentoColumn" prefWidth="87.0" text="idOrcamento" />
             <TableColumn fx:id="idPecaColumn" prefWidth="82.0" text="idPeca" />
             <TableColumn fx:id="idServicoColumn" text="idServico" />
-            <TableColumn fx:id="idAutomovelColumn" prefWidth="109.0" text="idAutomovel" />
-            <TableColumn fx:id="PrecoColumn" prefWidth="321.0" text="Preco" />
+            <TableColumn fx:id="idAutomovelColumn" prefWidth="186.39996337890625" text="idAutomovel" />
+            <TableColumn fx:id="PrecoColumn" prefWidth="245.60006713867188" text="Preco" />
          </columns>
       </TableView>
       <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
@@ -29,7 +29,7 @@
       <Button fx:id="editarButton" layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
       <Button fx:id="excluirButton" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
       <Button fx:id="cadastrarButton" layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisa" prefHeight="25.0" prefWidth="26.0" />
+      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="25.0" prefWidth="26.0" />
       <TextField fx:id="pesquisaContent" layoutX="188.0" layoutY="58.0" prefHeight="25.0" prefWidth="207.0" promptText="Insira a pesquisa aqui" />
       <ChoiceBox fx:id="tipoBox" layoutX="397.0" layoutY="58.0" prefHeight="25.0" prefWidth="95.0" />
    </children>

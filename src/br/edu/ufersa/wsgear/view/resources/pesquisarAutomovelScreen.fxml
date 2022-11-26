@@ -14,24 +14,25 @@
       <TableView layoutX="12.0" layoutY="100.0" prefHeight="270.0" prefWidth="680.0">
         <columns>
           <TableColumn fx:id="idDonoColumn" prefWidth="75.0" text="idDono" />
-          <TableColumn fx:id="CPFDonoColumn" prefWidth="135.0" text="CPFDono" />
-            <TableColumn fx:id="MarcaColumn" prefWidth="87.0" text="Marca" />
+          <TableColumn fx:id="CPFDonoColumn" prefWidth="108.00006103515625" text="CPFDono" />
+            <TableColumn fx:id="MarcaColumn" prefWidth="114.39988708496094" text="Marca" />
             <TableColumn fx:id="ModeloColumn" prefWidth="82.0" text="Modelo" />
             <TableColumn fx:id="CorColumn" prefWidth="60.0" text="Cor" />
-            <TableColumn fx:id="PlacaColumn" prefWidth="133.0" text="Placa" />
-            <TableColumn fx:id="AnoColumn" prefWidth="107.0" text="Ano" />
+            <TableColumn fx:id="PlacaColumn" prefWidth="85.60009765625" text="Placa" />
+            <TableColumn fx:id="AnoColumn" prefWidth="45.59991455078125" text="Ano" />
+            <TableColumn fx:id="idAutomovelColumn" prefWidth="106.39996337890625" text="idAutomovel" />
         </columns>
       </TableView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="editarButton" layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
-      <Button fx:id="excluirButton" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
-      <Button fx:id="cadastrarButton" layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisa" prefHeight="25.0" prefWidth="26.0" />
+      <Button layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <Button layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="25.0" prefWidth="26.0" />
       <TextField fx:id="pesquisaContent" layoutX="188.0" layoutY="58.0" prefHeight="25.0" prefWidth="207.0" promptText="Insira a pesquisa aqui" />
       <ChoiceBox fx:id="tipoBox" layoutX="397.0" layoutY="58.0" prefHeight="25.0" prefWidth="95.0" />
    </children>

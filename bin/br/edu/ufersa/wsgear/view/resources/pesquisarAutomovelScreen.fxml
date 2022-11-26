@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaPesquisaAutomovel">
    <children>
-      <TableView layoutX="12.0" layoutY="180.0" prefHeight="244.0" prefWidth="680.0">
+      <TableView layoutX="12.0" layoutY="100.0" prefHeight="270.0" prefWidth="680.0">
         <columns>
           <TableColumn fx:id="idDonoColumn" prefWidth="75.0" text="idDono" />
-          <TableColumn fx:id="CPFDonoColumn" prefWidth="135.0" text="CPFDono" />
-            <TableColumn fx:id="MarcaColumn" prefWidth="87.0" text="Marca" />
+          <TableColumn fx:id="CPFDonoColumn" prefWidth="108.00006103515625" text="CPFDono" />
+            <TableColumn fx:id="MarcaColumn" prefWidth="114.39988708496094" text="Marca" />
             <TableColumn fx:id="ModeloColumn" prefWidth="82.0" text="Modelo" />
             <TableColumn fx:id="CorColumn" prefWidth="60.0" text="Cor" />
-            <TableColumn fx:id="PlacaColumn" prefWidth="133.0" text="Placa" />
-            <TableColumn fx:id="AnoColumn" prefWidth="107.0" text="Ano" />
+            <TableColumn fx:id="PlacaColumn" prefWidth="85.60009765625" text="Placa" />
+            <TableColumn fx:id="AnoColumn" prefWidth="45.59991455078125" text="Ano" />
+            <TableColumn fx:id="idAutomovelColumn" prefWidth="106.39996337890625" text="idAutomovel" />
         </columns>
       </TableView>
-      <Button fx:id="botaoPesquisa" layoutX="491.0" layoutY="134.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="20.0" prefWidth="30.0" style="-fx-background-color: #FFFFFF;">
-         <graphic>
-            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@searchicon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
+      <Button layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <Button layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="25.0" prefWidth="26.0" />
+      <TextField fx:id="pesquisaContent" layoutX="188.0" layoutY="58.0" prefHeight="25.0" prefWidth="207.0" promptText="Insira a pesquisa aqui" />
+      <ChoiceBox fx:id="tipoBox" layoutX="397.0" layoutY="58.0" prefHeight="25.0" prefWidth="95.0" />
    </children>
 </Pane>

@@ -20,16 +20,16 @@
             <TableColumn fx:id="StatusColumn" prefWidth="117.0" text="Status" />
          </columns>
       </TableView>
-      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
       <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@wsgearLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="editarButton" layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
-      <Button fx:id="excluirButton" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
-      <Button fx:id="cadastrarButton" layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisa" prefHeight="25.0" prefWidth="26.0" />
+      <Button layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <Button layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="25.0" prefWidth="26.0" />
       <TextField fx:id="pesquisaContent" layoutX="188.0" layoutY="58.0" prefHeight="25.0" prefWidth="207.0" promptText="Insira a pesquisa aqui" />
       <ChoiceBox fx:id="tipoBox" layoutX="397.0" layoutY="58.0" prefHeight="25.0" prefWidth="95.0" />
    </children>

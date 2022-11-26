@@ -32,10 +32,12 @@ public class telaPesquisaOrcamento implements Initializable {
 	@FXML private Button cadastrarButton;
 	@FXML private Button excluirButton;
 
+	private String opcoes[]= {"idAutomovel"};
 	private OrcamentoBO bo = new OrcamentoBO();
 	private ObservableList<OrcamentoDTO> listaDeOrcamentos;
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		tipoBox.getItems().addAll(opcoes);
 		listarOrcamentos();
 	}
 
@@ -45,7 +47,7 @@ public class telaPesquisaOrcamento implements Initializable {
 		idOrcamentoColumn.setCellValueFactory(new PropertyValueFactory<>("idOrcamento"));
 		idPecaColumn.setCellValueFactory(new PropertyValueFactory<>("idPeca"));
 		idServicoColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
-		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("orcIdAutomovel"));
+		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("idAutomovel"));
 		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Valor"));
 		tabelaOrcamento.setItems(listaDeOrcamentos);
 
@@ -54,9 +56,13 @@ public class telaPesquisaOrcamento implements Initializable {
 	public void chamarTelaPrincipal() {
 		Telas.telaPrincipal();
 	}
-
+	
+	public void pesquisar() {
+		listarOrcamentos();
+	}
+	
 	public void cadastrar() {
-
+		Telas.telaCadastroOrcamento();
 	}
 
 	public void excluir() {

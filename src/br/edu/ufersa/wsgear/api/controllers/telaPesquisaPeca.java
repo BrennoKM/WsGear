@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,11 +22,14 @@ public class telaPesquisaPeca implements Initializable {
 	@FXML private TableColumn<PecaDTO, String> NomeColumn;
 	@FXML private TableColumn<PecaDTO, String> FabricanteColumn;
 	@FXML private TableColumn<PecaDTO, String> PrecoColumn;
+	@FXML private ChoiceBox<String> tipoBox;
 	
+	private String opcoes[]= {"idPeca", "Nome", "Fabricante"};
 	private PecaBO bo = new PecaBO();
     private ObservableList<PecaDTO> listaDePecas;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		tipoBox.getItems().addAll(opcoes);
 		pesquisar();
 	}
 	public void listarPecas() {
@@ -33,7 +37,7 @@ public class telaPesquisaPeca implements Initializable {
 		listaDePecas = FXCollections.observableArrayList(pecas);
 		idPecaColumn.setCellValueFactory(new PropertyValueFactory<>("idPeca"));
 		NomeColumn.setCellValueFactory(new PropertyValueFactory<>("Nome"));
-		FabricanteColumn.setCellValueFactory(new PropertyValueFactory<>("Fabricante"));
+		FabricanteColumn.setCellValueFactory(new PropertyValueFactory<>("fab"));
 		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preco"));
 		tabelaPeca.setItems(listaDePecas);
 		
@@ -57,3 +61,4 @@ public class telaPesquisaPeca implements Initializable {
 	public void editar() {
 
 	}
+}

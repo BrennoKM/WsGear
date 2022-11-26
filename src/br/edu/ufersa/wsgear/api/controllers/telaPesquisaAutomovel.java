@@ -11,12 +11,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class telaPesquisaAutomovel implements Initializable{
 	@FXML private TableView<AutomovelDTO> tabelaAutomovel;
+	
+	@FXML private TableColumn<AutomovelDTO, String> idAutomovelColumn;
 	@FXML private TableColumn<AutomovelDTO, String> idDonoColumn;
 	@FXML private TableColumn<AutomovelDTO, String> CPFDonoColumn;
 	@FXML private TableColumn<AutomovelDTO, String> MarcaColumn;
@@ -24,23 +27,28 @@ public class telaPesquisaAutomovel implements Initializable{
 	@FXML private TableColumn<AutomovelDTO, String> CorColumn;
 	@FXML private TableColumn<AutomovelDTO, String> PlacaColumn;
 	@FXML private TableColumn<AutomovelDTO, String> AnoColumn;
+	@FXML private ChoiceBox<String> tipoBox;
 	
+	private String opcoes[]= {"Placa", "CPFdono"};
 	private AutomovelBO bo = new AutomovelBO();
     private ObservableList<AutomovelDTO> listaDeAutomoveis;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		pesquisar();
+		tipoBox.getItems().addAll(opcoes);
+		//pesquisar();
+		//listarAutomoveis();
 	}
 	public void listarAutomoveis() {
 		List<AutomovelDTO> automoveis = bo.listar();
 		listaDeAutomoveis = FXCollections.observableArrayList(automoveis);
+		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("idAutomovel"));
 		idDonoColumn.setCellValueFactory(new PropertyValueFactory<>("idDono"));
-		CPFDonoColumn.setCellValueFactory(new PropertyValueFactory<>("CPFDono"));
-		MarcaColumn.setCellValueFactory(new PropertyValueFactory<>("Marca"));
-		ModeloColumn.setCellValueFactory(new PropertyValueFactory<>("Modelo"));
-		CorColumn.setCellValueFactory(new PropertyValueFactory<>("Cor"));
-		PlacaColumn.setCellValueFactory(new PropertyValueFactory<>("Placa"));
-		AnoColumn.setCellValueFactory(new PropertyValueFactory<>("Ano"));
+		CPFDonoColumn.setCellValueFactory(new PropertyValueFactory<>("cpfDono"));
+		MarcaColumn.setCellValueFactory(new PropertyValueFactory<>("marca"));
+		ModeloColumn.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+		CorColumn.setCellValueFactory(new PropertyValueFactory<>("cor"));
+		PlacaColumn.setCellValueFactory(new PropertyValueFactory<>("placa"));
+		AnoColumn.setCellValueFactory(new PropertyValueFactory<>("ano"));
 		tabelaAutomovel.setItems(listaDeAutomoveis);
 		
 	}
