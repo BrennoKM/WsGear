@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import br.edu.ufersa.wsgear.api.dto.PecaDTO;
 import br.edu.ufersa.wsgear.model.service.PecaBO;
+import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class telaPesquisaPeca {
     private ObservableList<PecaDTO> listaDePecas;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listarPecas();
+		pesquisar();
 	}
 	public void listarPecas() {
 		List<PecaDTO> pecas = bo.listar();
@@ -32,8 +33,15 @@ public class telaPesquisaPeca {
 		idPecaColumn.setCellValueFactory(new PropertyValueFactory<>("idPeca"));
 		NomeColumn.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		FabricanteColumn.setCellValueFactory(new PropertyValueFactory<>("Fabricante"));
-		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preço"));
+		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preco"));
 		tabelaPeca.setItems(listaDePecas);
 		
+	}
+	
+	public void pesquisar() {
+		listarPecas();
+	}
+	public void chamarTelaPrincipal() {
+		Telas.telaPrincipal();
 	}
 }

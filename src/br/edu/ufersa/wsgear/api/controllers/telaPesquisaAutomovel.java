@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import br.edu.ufersa.wsgear.api.dto.AutomovelDTO;
 import br.edu.ufersa.wsgear.model.service.AutomovelBO;
+import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -41,5 +42,11 @@ public class telaPesquisaAutomovel {
 		AnoColumn.setCellValueFactory(new PropertyValueFactory<>("Ano"));
 		tabelaAutomovel.setItems(listaDeAutomoveis);
 		
+	}
+	public void pesquisar() {
+		listarAutomoveis();
+	}
+	public void chamarTelaPrincipal() {
+		Telas.telaPrincipal();
 	}
 }

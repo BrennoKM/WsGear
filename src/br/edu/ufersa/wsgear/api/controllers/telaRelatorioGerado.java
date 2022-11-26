@@ -25,7 +25,8 @@ public class telaRelatorioGerado {
 	@FXML private TableColumn<OrcamentoDTO, String> statusColumn;
 	
 	private OrcamentoBO bo = new OrcamentoBO();
-    private ObservableList<OrcamentoDTO> listaRelatorio;
+    @SuppressWarnings("unused")
+	private ObservableList<OrcamentoDTO> listaRelatorio;
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	exibirRelatorio();
@@ -39,7 +40,7 @@ public class telaRelatorioGerado {
 		valorServicoColumn.setCellValueFactory(new PropertyValueFactory<>(""));
 		valorTotalColumn.setCellValueFactory(new PropertyValueFactory<>(""));
 		statusColumn.setCellValueFactory(new PropertyValueFactory<>(""));
-		tabelaRelatorio.setItems(relatorio);
+		tabelaRelatorio.setItems(listaRelatorio);
 	}
     
 }

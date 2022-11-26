@@ -51,7 +51,7 @@
       </Label>
       <Label layoutX="21.0" layoutY="215.0" text="Selecione o tipo e clique no botão." />
       <Label layoutX="22.0" layoutY="287.0" text="Clique para concluir um serviço." />
-      <Button fx:id="editarButton" layoutX="595.0" layoutY="166.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #F8F80F;">
+      <Button fx:id="editarButton" layoutX="595.0" layoutY="166.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#telaPesquisar" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #F8F80F;">
          <font>
             <Font size="15.0" />
          </font>

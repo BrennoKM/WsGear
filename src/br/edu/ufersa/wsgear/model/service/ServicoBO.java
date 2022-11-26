@@ -55,8 +55,8 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 				servico.setIdServico(rs.getInt("idServico"));
 				servico.setNome(rs.getString("Nome"));
 				servico.setPreco(rs.getDouble("Preco"));
-				servico.setDataServico(LocalDate.parse(rs.getString("DataServico")));
-				servico.setStatus(rs.getString("Status"));
+				servico.setDataServico(LocalDate.parse(rs.getString("dataServico")));
+				servico.setStatus(rs.getString("statusServico"));
 
 				servicos.add(servico);
 			}

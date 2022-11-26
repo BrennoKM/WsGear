@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import br.edu.ufersa.wsgear.api.dto.ServicoDTO;
 import br.edu.ufersa.wsgear.model.service.ServicoBO;
+import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ public class telaPesquisaServico {
     private ObservableList<ServicoDTO> listaDeServicos;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listarServicos();
+		pesquisar();
 	}
 	public void listarServicos() {
 		List<ServicoDTO> servicos = bo.listar();
@@ -33,9 +34,15 @@ public class telaPesquisaServico {
 		StatusColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
 		NomeColumn.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		DataServicoColumn.setCellValueFactory(new PropertyValueFactory<>("Data Inicial"));
-		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preço"));
+		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preco"));
 		StatusColumn.setCellValueFactory(new PropertyValueFactory<>("Status"));
 		tabelaServico.setItems(listaDeServicos);
 		
+	}
+	public void pesquisar() {
+		listarServicos();
+	}
+	public void chamarTelaPrincipal() {
+		Telas.telaPrincipal();
 	}
 }
