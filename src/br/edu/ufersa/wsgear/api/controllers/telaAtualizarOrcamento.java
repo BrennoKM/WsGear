@@ -34,7 +34,7 @@ public class telaAtualizarOrcamento {
 		dto.setIdServico(Integer.parseInt(orcamentoIdServico.getText()));
 		dto.setValor(Double.parseDouble(orcamentoPreco.getText()));
 		bo.alterar(dto);
-		Telas.telaPesquisaPeca();
+		Telas.telaPesquisaOrcamento();
     }
 
     @FXML
