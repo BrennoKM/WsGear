@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.wsgear.api.controllers.telaPesquisaCliente">
+   <children>
+      <TableView layoutX="12.0" layoutY="100.0" prefHeight="270.0" prefWidth="680.0">
+         <columns>
+            <TableColumn fx:id="idClienteColumn" prefWidth="62.0" text="idCliente" />
+            <TableColumn fx:id="CPFColumn" text="CPF" />
+            <TableColumn fx:id="NomeColumn" prefWidth="155.0" text="Nome" />
+            <TableColumn fx:id="TelefoneColumn" prefWidth="66.0" text="Telefone" />
+            <TableColumn fx:id="CEPColumn" prefWidth="71.0" text="CEP" />
+            <TableColumn fx:id="RuaColumn" prefWidth="75.0" text="Rua" />
+            <TableColumn fx:id="BairroColumn" prefWidth="72.0" text="Bairro" />
+            <TableColumn fx:id="ComplementoColumn" prefWidth="50.0" text="Complemento" />
+            <TableColumn fx:id="NumeroColumn" prefWidth="62.0" text="Numero" />
+         </columns>
+      </TableView>
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
+      <ImageView fitHeight="42.0" fitWidth="373.0" layoutX="595.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wsgearLogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="editarButton" layoutX="332.0" layoutY="391.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
+      <Button fx:id="excluirButton" layoutX="395.0" layoutY="391.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
+      <Button fx:id="cadastrarButton" layoutX="253.0" layoutY="391.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <Button layoutX="498.0" layoutY="58.0" mnemonicParsing="false" onAction="#pesquisa" prefHeight="25.0" prefWidth="26.0" />
+      <TextField fx:id="pesquisaContent" layoutX="188.0" layoutY="58.0" prefHeight="25.0" prefWidth="207.0" promptText="Insira a pesquisa aqui" />
+      <ChoiceBox fx:id="tipoBox" layoutX="397.0" layoutY="58.0" prefHeight="25.0" prefWidth="95.0" />
+   </children>
+</Pane>
