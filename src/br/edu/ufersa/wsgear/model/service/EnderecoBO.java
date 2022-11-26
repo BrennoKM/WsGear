@@ -64,6 +64,28 @@ public class EnderecoBO implements ServiceInterface<EnderecoDTO> {
 			return false;
 		}
 	}
+	
+	public EnderecoDTO buscar(EnderecoDTO endDTO) {
+		Endereco end = Endereco.converter(endDTO);
+		try {
+			ResultSet rs = biDao.findBySpecifiedField(end, "Cpf_morador");
+			if (rs != null && rs.next()) {
+				EnderecoDTO endereco = new EnderecoDTO();
+				endereco.setBairro(rs.getString("Bairro"));
+				endereco.setCep(rs.getString("CEP"));
+				endereco.setComplemento(rs.getString("Complemento"));
+				endereco.setCpf_morador(rs.getString("Cpf_morador"));
+				endereco.setNumero(rs.getInt("Numero"));
+				endereco.setRua(rs.getString("Rua"));
+				return endereco;
+			}else {
+				return null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public List<EnderecoDTO> listar() {
 		List<EnderecoDTO> enderecos = new ArrayList<EnderecoDTO>();

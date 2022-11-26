@@ -86,7 +86,8 @@ public class ServicoBO implements ServiceInterface<ServicoDTO> {
 	}
 
 	public boolean deletar(ServicoDTO servicoDTO) {
-		Servico servico = Servico.converter(servicoDTO);
+		Servico servico = new Servico();
+		servico.setIdServico(servicoDTO.getIdServico());
 		ResultSet rs = dao.findBySpecifiedField(servico, "idServico");
 		try {
 			if (rs != null && rs.next()) {

@@ -56,11 +56,19 @@ public class telaPesquisaServico implements Initializable{
 	}
 
 	public void excluir() {
+		ServicoDTO s = new ServicoDTO();
 
+		s.setIdServico(tabelaServico.getSelectionModel().getSelectedItem().getIdServico());
+		
+		bo.deletar(s);
+		listarServicos();
 	}
 
 	public void editar() {
+		ServicoDTO s = new ServicoDTO();
 
+		s.setIdServico(tabelaServico.getSelectionModel().getSelectedItem().getIdServico());
+		telaAtualizarServico.telaAtualizar(s);
 	}
 
 }

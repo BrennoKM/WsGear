@@ -17,6 +17,13 @@ public class ClienteDTO {
 	private List<Automovel> automoveis = new ArrayList<>();
 
 	
+	//atributos endereco
+	private String cep; // CEP
+	private String rua; // Rua
+	private String bairro; // Bairro
+	private String complemento; // Complemento
+	private int numero; // Numero
+	
 	public ClienteDTO() {
 	}
 
@@ -81,7 +88,60 @@ public class ClienteDTO {
 			this.automoveis = list;
 		}
 	}
+	public void setCep(String cep) {
+		if (!cep.isBlank() || !cep.isEmpty())
+			this.cep = cep;
+		else
+			this.cep = "n/a";
+	}
 
+	public void setRua(String rua) {
+		if (!rua.isBlank() || !rua.isEmpty())
+			this.rua = rua;
+		else
+			this.rua = "n/a";
+	}
+
+	public void setBairro(String bairro) {
+		if (!bairro.isBlank() || !bairro.isEmpty())
+			this.bairro = bairro;
+		else
+			this.bairro = "n/a";
+	}
+
+	public void setComplemento(String complemento) {
+		if (!complemento.isBlank() || !complemento.isEmpty())
+			this.complemento = complemento;
+		else
+			this.complemento = "n/a";
+	}
+
+	public void setNumero(int numero) {
+		if (numero > 0)
+			this.numero = numero;
+		else
+			this.numero = 0;
+	}
+
+	public int getNumero() {
+		return this.numero;
+	}
+
+	public String getComplemento() {
+		return this.complemento;
+	}
+
+	public String getRua() {
+		return this.rua;
+	}
+
+	public String getBairro() {
+		return this.bairro;
+	}
+
+	public String getCep() {
+		return this.cep;
+	}
 	// Metodos get
 
 	public String getNome() {
@@ -107,4 +167,5 @@ public class ClienteDTO {
 	public List<Automovel> getAutomoveis() {
 		return automoveis;
 	}
+
 }

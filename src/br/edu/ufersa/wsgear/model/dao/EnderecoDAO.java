@@ -96,4 +96,17 @@ public class EnderecoDAO extends BaseDAO<Endereco> {
 			return null;
 		}
 	}
+	
+	public ResultSet findAll() {
+		String sql = "SELECT * FROM tb_endereco;";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			return rs;
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

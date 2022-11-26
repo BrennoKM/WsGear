@@ -251,4 +251,16 @@ public class Telas extends Application {
 		}
 	}
 
+	public static void telaAtualizarServico() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/atualizarServicoScreen.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Atualizar Servico");
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

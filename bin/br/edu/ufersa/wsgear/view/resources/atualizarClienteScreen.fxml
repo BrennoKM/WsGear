@@ -37,7 +37,7 @@
          </font>
       </Label>
       <Button layoutX="302.0" layoutY="381.0" mnemonicParsing="false" onAction="#cadastrar" text="Salvar" />
-      <Button layoutX="361.0" layoutY="381.0" mnemonicParsing="false" onAction="#voltarMainScreen" text="Cancelar" />
+      <Button layoutX="361.0" layoutY="381.0" mnemonicParsing="false" onAction="#voltarTelaPesquisaCliente" text="Cancelar" />
       <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#chamarTelaPrincipal" text="Home" />
    </children>
 </Pane>

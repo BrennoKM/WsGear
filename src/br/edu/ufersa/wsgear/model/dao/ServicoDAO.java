@@ -50,14 +50,14 @@ public class ServicoDAO extends BaseDAO<Servico> {
 	}
 
 	public boolean alterar(Servico servico) {
-		String sql = "UPDATE tb_servico SET idServico=?,nome=?,preco=?,dataServico=?,status=? WHERE idServico=? ";
+		String sql = "UPDATE tb_servico SET nome=?,preco=?,dataServico=?,statusServico=? WHERE idServico=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, servico.getIdServico());
-			pst.setString(2, servico.getNome());
-			pst.setDouble(3, servico.getPreco());
-			pst.setDate(4, Date.valueOf(servico.getDataServico()));
-			pst.setString(5, servico.getStatus());
+			pst.setString(1, servico.getNome());
+			pst.setDouble(2, servico.getPreco());
+			pst.setDate(3, Date.valueOf(servico.getDataServico()));
+			pst.setString(4, servico.getStatus());
+			pst.setInt(5, servico.getIdServico());
 			pst.executeUpdate();
 			return true;
 
