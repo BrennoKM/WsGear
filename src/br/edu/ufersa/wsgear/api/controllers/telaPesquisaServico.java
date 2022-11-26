@@ -45,4 +45,17 @@ public class telaPesquisaServico implements Initializable{
 	public void chamarTelaPrincipal() {
 		Telas.telaPrincipal();
 	}
+
+	public void cadastrar() {
+
+	}
+
+	public void excluir() {
+
+	}
+
+	public void editar() {
+
+	}
+
 }
