@@ -67,7 +67,7 @@ public class telaPrincipal implements Initializable{
 			Telas.telaPesquisaServico();
 			break;
 		case "Orcamento":
-			//Telas.telaPes
+			Telas.telaPesquisaOrcamento();
 			break;
 	}
 	}

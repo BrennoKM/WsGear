@@ -76,6 +76,7 @@ public class OrcamentoBO implements ServiceInterface<OrcamentoDTO>{
 				orcamento.setIdOrcamento(rs.getInt("idOrcamento"));
 				orcamento.setValor(rs.getDouble("Valor"));
 				orcamento.setIdPeca(rs.getInt("orcIdPeca"));
+				orcamento.setIdAutomovel(rs.getInt("orcIdAutomovel"));
 				orcamento.setIdServico(rs.getInt("orcIdServico"));
 				//orcamento.setPeca(new Peca(rs.getInt("orcIdPeca")));
 				//orcamento.setServico(new Servico(rs.getInt("orcIdServico")));

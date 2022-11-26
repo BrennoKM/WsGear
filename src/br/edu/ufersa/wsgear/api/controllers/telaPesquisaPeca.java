@@ -10,11 +10,12 @@ import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class telaPesquisaPeca {
+public class telaPesquisaPeca implements Initializable {
 	@FXML private TableView<PecaDTO> tabelaPeca;
 	@FXML private TableColumn<PecaDTO, String> idPecaColumn;
 	@FXML private TableColumn<PecaDTO, String> NomeColumn;

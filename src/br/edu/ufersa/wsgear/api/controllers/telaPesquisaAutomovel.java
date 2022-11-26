@@ -10,11 +10,12 @@ import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class telaPesquisaAutomovel {
+public class telaPesquisaAutomovel implements Initializable{
 	@FXML private TableView<AutomovelDTO> tabelaAutomovel;
 	@FXML private TableColumn<AutomovelDTO, String> idDonoColumn;
 	@FXML private TableColumn<AutomovelDTO, String> CPFDonoColumn;
@@ -28,7 +29,7 @@ public class telaPesquisaAutomovel {
     private ObservableList<AutomovelDTO> listaDeAutomoveis;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listarAutomoveis();
+		pesquisar();
 	}
 	public void listarAutomoveis() {
 		List<AutomovelDTO> automoveis = bo.listar();

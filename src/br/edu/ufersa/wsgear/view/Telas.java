@@ -215,4 +215,16 @@ public class Telas extends Application {
 
 	}
 
+	public static void telaPesquisaOrcamento() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/pesquisarOrcamentoScreen.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Pesquisa de Orcamentos");
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

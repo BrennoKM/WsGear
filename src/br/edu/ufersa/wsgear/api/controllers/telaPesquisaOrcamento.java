@@ -6,14 +6,16 @@ import java.util.ResourceBundle;
 
 import br.edu.ufersa.wsgear.api.dto.OrcamentoDTO;
 import br.edu.ufersa.wsgear.model.service.OrcamentoBO;
+import br.edu.ufersa.wsgear.view.Telas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class telaPesquisaOrcamento {
+public class telaPesquisaOrcamento implements Initializable{
 	@FXML private TableView<OrcamentoDTO> tabelaOrcamento;
 	@FXML private TableColumn<OrcamentoDTO, String> idPecaColumn;
 	@FXML private TableColumn<OrcamentoDTO, String> idServicoColumn;
@@ -24,16 +26,23 @@ public class telaPesquisaOrcamento {
     private ObservableList<OrcamentoDTO> listaDeOrcamentos;
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listarOrcamentos();
+		pesquisar();
 	}
 	public void listarOrcamentos() {
 		List<OrcamentoDTO> orcamentos = bo.listar();
 		listaDeOrcamentos = FXCollections.observableArrayList(orcamentos);
 		idPecaColumn.setCellValueFactory(new PropertyValueFactory<>("idPeca"));
 		idServicoColumn.setCellValueFactory(new PropertyValueFactory<>("idServico"));
-		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("idAutomovel"));
-		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Preço"));
+		idAutomovelColumn.setCellValueFactory(new PropertyValueFactory<>("orcIdAutomovel"));
+		PrecoColumn.setCellValueFactory(new PropertyValueFactory<>("Valor"));
 		tabelaOrcamento.setItems(listaDeOrcamentos);
 		
 	}
+	public void pesquisar() {
+		listarOrcamentos();
+	}
+	public void chamarTelaPrincipal() {
+		Telas.telaPrincipal();
+	}
+	
 }
